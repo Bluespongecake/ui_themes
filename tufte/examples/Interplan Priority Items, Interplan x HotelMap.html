@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Mags @ HotelMap">
+    <meta name="description" content="Interplan Priority Items, HotelMap Analyst Workbench">
+    <meta name="theme-color" content="#f4f1eb">
+    <title>Interplan Priority Items, Interplan x HotelMap</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --ink-black: #f4f1eb;
+            --dark-grey: #fefdfb;
+            --mid-dark: #faf8f4;
+            --newsprint: #1c1917;
+            --newsprint-dim: rgba(28, 25, 23, 0.78);
+            --text-grey: #7a7267;
+            --cyan-accent: #0e7490;
+            --cyan-bright: #0891b2;
+            --rule-grey: #e8e4dd;
+            --col-critical: #b91c1c;
+            --col-done: #15803d;
+            --pill-grey-bg: rgba(28, 25, 23, 0.06);
+            --pill-grey-text: #57534e;
+            --card-shadow: 0 1px 2px rgba(14, 116, 144, 0.04),
+                           0 2px 8px rgba(14, 116, 144, 0.03);
+        }
+
+        /* ===== BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--ink-black);
+            color: var(--newsprint-dim);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--dark-grey);
+            border-bottom: 1px solid var(--rule-grey);
+            padding: 32px 40px 28px;
+        }
+        .header-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: flex-start;
+        }
+        .header-text { flex: 1; min-width: 0; }
+        .header-logo { flex-shrink: 0; width: 180px; margin-left: 24px; padding-top: 14px; }
+        .header-logo svg { width: 100%; height: auto; display: block; }
+        .header-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--cyan-accent); margin-bottom: 8px;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700; font-size: 30px;
+            color: var(--newsprint); line-height: 1.2; margin-bottom: 4px;
+        }
+        .header h1 em { color: var(--cyan-accent); font-style: italic; }
+        .header-sub {
+            font-family: 'Source Serif 4', serif;
+            font-size: 15px; color: var(--text-grey);
+        }
+
+        /* ===== MAIN ===== */
+        .main { max-width: 1280px; margin: 0 auto; padding: 32px 40px 60px; }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-row {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 32px;
+        }
+        .progress-track {
+            flex: 1; height: 6px; border-radius: 3px;
+            background: var(--rule-grey); overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%; border-radius: 3px;
+            background: var(--cyan-accent);
+            transition: width 0.3s ease;
+        }
+        .progress-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px; font-weight: 500; color: var(--text-grey);
+            white-space: nowrap;
+        }
+
+        /* ===== CHECKLIST ===== */
+        .checklist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .check-item {
+            background: var(--dark-grey); border-radius: 3px;
+            box-shadow: var(--card-shadow);
+            padding: 20px 24px;
+            display: flex; gap: 12px; align-items: flex-start;
+            transition: opacity 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            position: relative;
+        }
+        .check-item.done { opacity: 0.5; }
+        .check-item.done .check-title { text-decoration: line-through; color: var(--text-grey); }
+
+        /* Drag handle */
+        .drag-handle {
+            flex-shrink: 0; width: 18px; min-height: 44px;
+            cursor: grab; display: flex; align-items: center;
+            justify-content: center; touch-action: none;
+            color: var(--rule-grey); margin-top: 0;
+        }
+        .drag-handle:hover { color: var(--cyan-accent); }
+        .drag-handle:active { cursor: grabbing; }
+        .drag-handle svg { width: 14px; height: 14px; pointer-events: none; }
+
+        /* Drag states */
+        .check-item.dragging {
+            opacity: 0.4;
+            box-shadow: 0 4px 20px rgba(14, 116, 144, 0.12);
+            transform: scale(0.98);
+        }
+        .check-item.drag-over-above {
+            box-shadow: 0 -3px 0 0 var(--cyan-accent), var(--card-shadow);
+        }
+        .check-item.drag-over-below {
+            box-shadow: 0 3px 0 0 var(--cyan-accent), var(--card-shadow);
+        }
+
+        /* Custom checkbox */
+        .check-box {
+            flex-shrink: 0; width: 22px; height: 22px;
+            border: 2px solid var(--rule-grey); border-radius: 3px;
+            cursor: pointer; position: relative; margin-top: 2px;
+            background: var(--dark-grey);
+            min-width: 22px; min-height: 22px;
+        }
+        .check-box:hover { border-color: var(--cyan-accent); }
+        .check-item.done .check-box {
+            background: var(--cyan-accent); border-color: var(--cyan-accent);
+        }
+        .check-item.done .check-box::after {
+            content: '';
+            position: absolute; top: 3px; left: 6px;
+            width: 6px; height: 10px;
+            border: solid #fff; border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .check-content { flex: 1; min-width: 0; }
+
+        .check-top {
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 4px; flex-wrap: wrap;
+        }
+        .check-ref {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; color: var(--text-grey);
+        }
+        .check-area {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; font-weight: 400;
+            padding: 2px 6px; border-radius: 2px;
+            background: var(--pill-grey-bg); color: var(--pill-grey-text);
+        }
+        .pill-prio {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 3px 8px; border-radius: 2px;
+            background: rgba(185, 28, 28, 0.1); color: var(--col-critical);
+        }
+        .pill-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 3px 8px; border-radius: 2px;
+        }
+        .pill-inprogress { background: rgba(14, 116, 144, 0.15); color: var(--cyan-bright); }
+        .pill-open { background: var(--pill-grey-bg); color: var(--pill-grey-text); }
+
+        .check-title {
+            font-family: 'Source Serif 4', serif;
+            font-weight: 600; font-size: 17px;
+            color: var(--newsprint); line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .check-desc {
+            font-family: 'Source Serif 4', serif;
+            font-size: 14px; color: var(--text-grey);
+            line-height: 1.55;
+        }
+
+        .check-notes {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; color: var(--cyan-accent);
+            margin-top: 8px; line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 40px 48px;
+            border-top: 1px solid var(--rule-grey); padding-top: 20px;
+        }
+        .footer p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; color: var(--text-grey); letter-spacing: 0.04em;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 960px) {
+            .checklist { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 24px 20px 20px; }
+            .header h1 { font-size: 24px; }
+            .header-logo { width: 130px; margin-left: 16px; }
+            .main { padding: 24px 16px 48px; }
+            .check-item { padding: 16px; gap: 12px; }
+            .check-title { font-size: 16px; }
+            .footer { padding: 0 16px 40px; padding-top: 20px; }
+        }
+
+        @media (max-width: 420px) {
+            .header-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="header-text">
+            <div class="header-label">Interplan x HotelMap</div>
+            <h1>Priority <em>Items</em></h1>
+            <div class="header-sub">All 10 priority topics from the Interplan spreadsheet (8 April 2026).</div>
+        </div>
+        <div class="header-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228.62 19.44" aria-label="HotelMap logo">
+                <path fill="#1c1917" d="m3.3,11.2v7.92H0V.32h3.3v7.82h8.97V.32h3.3v18.8h-3.3v-7.92H3.3Z"/>
+                <path fill="#1c1917" d="m40.14,19.44c-5.78,0-9.81-4.38-9.81-9.7S34.42,0,40.19,0s9.81,4.38,9.81,9.7-4.08,9.75-9.86,9.75Zm0-16.41c-3.73,0-6.34,2.98-6.34,6.66s2.66,6.71,6.39,6.71,6.34-2.98,6.34-6.66-2.66-6.71-6.39-6.71Z"/>
+                <path fill="#1c1917" d="m71.68,19.12h-3.33V3.38h-5.96V.32h15.26v3.06h-5.96v15.74Z"/>
+                <path fill="#1c1917" d="m105.83,3.28h-10.64v4.89h9.43v2.95h-9.43v5.05h10.77v2.95h-14.08V.32h13.94v2.96Z"/>
+                <path fill="#1c1917" d="m120.64.32h3.3v15.79h9.89v3.01h-13.19V.32Z"/>
+                <path fill="#1c1917" d="m157.26,14.5h-.11l-5.88-8.81v13.42h-3.25V.32h3.52l5.72,8.89,5.72-8.89h3.52v18.8h-3.3V5.64l-5.94,8.86Z"/>
+                <path fill="#1c1917" d="m200.09,19.12h-3.49l-1.91-4.54h-8.89l-1.93,4.54h-3.39L188.75.19h3.06l8.27,18.93Zm-9.86-14.98l-3.22,7.52h6.48l-3.25-7.52Z"/>
+                <path fill="#1c1917" d="m221.1,13.08h-3.73v6.04h-3.31V.32h7.42c4.38,0,7.15,2.47,7.15,6.31,0,4.24-3.38,6.44-7.52,6.44Zm.11-9.75h-3.84v6.77h3.84c2.5,0,4.06-1.37,4.06-3.38,0-2.23-1.58-3.38-4.06-3.38Z"/>
+            </svg>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+
+    <!-- Progress -->
+    <div class="progress-row">
+        <span class="progress-label" id="progressLabel">0 of 10 complete</span>
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+        </div>
+    </div>
+
+    <!-- Checklist -->
+    <div class="checklist" id="checklist">
+
+        <!-- 01. Payment / Unzer -->
+        <div class="check-item" data-id="1">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">01</span>
+                    <span class="check-area">Payments</span>
+                    <span class="pill-prio">PRIORITY</span>
+                </div>
+                <div class="check-title">Payment / Unzer</div>
+                <div class="check-desc">Loading circle does not disappear after payment. Payments appear in Unzer but no corresponding booking is created in HotelMap, only discovered when checking Unzer reports or when clients contact us. Reverse also occurs: booking exists in HotelMap but no payment recorded in Unzer.</div>
+                <div class="check-notes">Reminder sent 31 March 2026</div>
+            </div>
+        </div>
+
+        <!-- 02. Cache -->
+        <div class="check-item" data-id="2">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">02</span>
+                    <span class="check-area">Cache</span>
+                    <span class="pill-prio">PRIORITY</span>
+                </div>
+                <div class="check-title">Information Wrongly Saved on Multiple Places</div>
+                <div class="check-desc">Master block "important information" text is being copied into all master blocks created after the original entry, rather than staying in the source block only. Client information is also leaking into other subblocks, and the dropdown is showing other clients' blocks.</div>
+            </div>
+        </div>
+
+        <!-- 03. Invoices / Credit Notes -->
+        <div class="check-item" data-id="3">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">03</span>
+                    <span class="check-area">Subblock App</span>
+                    <span class="pill-prio">PRIORITY</span>
+                    <span class="pill-status pill-inprogress">IN PROGRESS</span>
+                </div>
+                <div class="check-title">Invoices / Credit Notes</div>
+                <div class="check-desc">Invoice volume needs to be reduced. Preview function required. New invoices should only be generated after a successful card payment, to avoid invoices and credit notes for failed or aborted payments. New pop-up needed for date check showing company name, address, amendable VAT ID, and amendable PO number.</div>
+                <div class="check-notes">HM showed the preview option during last catch-up call. Interplan want this implemented. Promised for update in January. Reminder sent 6 November 2025.</div>
+            </div>
+        </div>
+
+        <!-- 04. Penalties -->
+        <div class="check-item" data-id="4">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">04</span>
+                    <span class="check-area">Subblock</span>
+                    <span class="pill-prio">PRIORITY</span>
+                </div>
+                <div class="check-title">Penalties Calculated Incorrectly</div>
+                <div class="check-desc">Penalty amounts are being calculated incorrectly within the subblock. Separate from the "Other" tier issue where penalties trigger when allotment is reduced after issuing a contract but before signature.</div>
+            </div>
+        </div>
+
+        <!-- 05. Managing Paid Bookings -->
+        <div class="check-item" data-id="5">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">05</span>
+                    <span class="check-area">Subblock / Website</span>
+                    <span class="pill-prio">PRIORITY</span>
+                    <span class="pill-status pill-open">OPEN</span>
+                </div>
+                <div class="check-title">Managing Paid Bookings</div>
+                <div class="check-desc">No ability to manage bookings that have been paid. Amendment requests are frequent, especially for VIP and speaker bookings. Onsite issues cannot be resolved quickly enough. Paid bookings are very complex.</div>
+                <div class="check-notes">HM proposed a "Manage" feature for paid bookings.</div>
+            </div>
+        </div>
+
+        <!-- 06. Setup Rotterdam / Taxes -->
+        <div class="check-item" data-id="6">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">06</span>
+                    <span class="check-area">Subblock</span>
+                    <span class="pill-prio">PRIORITY</span>
+                </div>
+                <div class="check-title">Setup Rotterdam / Dutch Tax Splits</div>
+                <div class="check-desc">Three different tax rates required: 21% for rooms, 9% for breakfast, 0% for city tax. Currently producing incorrect invoices with wrong splits and sums, creating significant extra work for the finance department. Invoice split also needed for 0% reverse charge, which the system cannot handle automatically and must be done manually by HotelMap. Dutch group fee requires a different tax rate, also handled manually.</div>
+            </div>
+        </div>
+
+        <!-- 07. Change Log + Report -->
+        <div class="check-item" data-id="7">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">07</span>
+                    <span class="check-area">Master Block</span>
+                    <span class="pill-prio">PRIORITY</span>
+                    <span class="pill-status pill-open">OPEN</span>
+                </div>
+                <div class="check-title">Change Log + Report</div>
+                <div class="check-desc">Add timestamps for changes and track who changed what (hotel, subblock, Interplan user). Download should match rooming list format. Also needed for changes from single into double occupancy or room categories.</div>
+                <div class="check-notes">Promised for update in January.</div>
+            </div>
+        </div>
+
+        <!-- 08. Statement / Annex -->
+        <div class="check-item" data-id="8">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">08</span>
+                    <span class="check-area">Subblock</span>
+                    <span class="pill-prio">PRIORITY</span>
+                    <span class="pill-status pill-inprogress">IN PROGRESS</span>
+                </div>
+                <div class="check-title">Statement / Annex Template</div>
+                <div class="check-desc">Current statement format is acceptable, but Interplan want to use their own branded template. Paid supplements must appear on the final invoice. Agreed that over/underpayment items will be added to the annex as a reminder to act.</div>
+                <div class="check-notes">Interplan sent the requested Excel template to HM. Reminder sent 9 September 2025.</div>
+            </div>
+        </div>
+
+        <!-- 09. Room Release Tool -->
+        <div class="check-item" data-id="9">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">09</span>
+                    <span class="check-area">Reports</span>
+                    <span class="pill-prio">PRIORITY</span>
+                    <span class="pill-status pill-inprogress">IN PROGRESS</span>
+                </div>
+                <div class="check-title">Room Release Tool</div>
+                <div class="check-desc">Add total room nights columns. Enable deletion of suggestions with a confirmation pop-up. After "process", show a full overview of all room categories and all room totals in the pop-up. Originally flagged as needed by September.</div>
+                <div class="check-notes">HM to check download approach. Reminder sent 6 November 2025.</div>
+            </div>
+        </div>
+
+        <!-- 10. Credit Notes (0% VAT) -->
+        <div class="check-item" data-id="10">
+            <div class="drag-handle" aria-label="Drag to reorder"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="5" x2="12" y2="5"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="4" y1="11" x2="12" y2="11"/></svg></div>
+            <div class="check-box" role="checkbox" tabindex="0" aria-checked="false" aria-label="Mark complete"></div>
+            <div class="check-content">
+                <div class="check-top">
+                    <span class="check-ref">10</span>
+                    <span class="check-area">Subblock</span>
+                    <span class="pill-prio">PRIORITY</span>
+                    <span class="pill-status pill-open">OPEN</span>
+                </div>
+                <div class="check-title">Credit Notes (0% VAT)</div>
+                <div class="check-desc">Tax information fields are required even when VAT is 0%, causing problems for non-EU companies that do not have a VAT ID.</div>
+                <div class="check-notes">Reminder sent 6 November 2025.</div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <p>Interplan Priority Items. Source: Interplan_Topics_in_prio_order_080426.xlsx. Generated 10 April 2026. Mags @ HotelMap. Internal, Confidential.</p>
+</footer>
+
+<script>
+/* ===== DOM REFS ===== */
+var checklist = document.getElementById('checklist');
+var progressLabel = document.getElementById('progressLabel');
+var progressFill = document.getElementById('progressFill');
+
+/* ===== PROGRESS ===== */
+function updateProgress() {
+    var all = checklist.querySelectorAll('.check-item');
+    var done = checklist.querySelectorAll('.check-item.done').length;
+    progressLabel.textContent = done + ' of ' + all.length + ' complete';
+    progressFill.style.width = (done / all.length * 100) + '%';
+}
+
+/* ===== RENUMBER ===== */
+function renumber() {
+    checklist.querySelectorAll('.check-item').forEach(function(item, i) {
+        var ref = item.querySelector('.check-ref');
+        if (ref) ref.textContent = String(i + 1).padStart(2, '0');
+    });
+}
+
+/* ===== CHECKBOX INTERACTION ===== */
+function bindCheckboxes() {
+    checklist.querySelectorAll('.check-item').forEach(function(item) {
+        var box = item.querySelector('.check-box');
+        if (box.dataset.bound) return;
+        box.dataset.bound = '1';
+
+        function toggle() {
+            var isDone = item.classList.toggle('done');
+            box.setAttribute('aria-checked', isDone);
+            updateProgress();
+        }
+        box.addEventListener('click', toggle);
+        box.addEventListener('keydown', function(e) {
+            if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); }
+        });
+    });
+}
+
+/* ===== DESKTOP DRAG AND DROP (HTML5) ===== */
+var dragItem = null;
+
+checklist.addEventListener('dragstart', function(e) {
+    var item = e.target.closest('.check-item');
+    if (!item) return;
+    dragItem = item;
+    item.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', '');
+});
+
+checklist.addEventListener('dragend', function(e) {
+    var item = e.target.closest('.check-item');
+    if (item) item.classList.remove('dragging');
+    clearDropIndicators();
+    dragItem = null;
+    renumber();
+});
+
+checklist.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    var target = e.target.closest('.check-item');
+    if (!target || target === dragItem) return;
+
+    clearDropIndicators();
+    var rect = target.getBoundingClientRect();
+    var midY = rect.top + rect.height / 2;
+    if (e.clientY < midY) {
+        target.classList.add('drag-over-above');
+    } else {
+        target.classList.add('drag-over-below');
+    }
+});
+
+checklist.addEventListener('drop', function(e) {
+    e.preventDefault();
+    var target = e.target.closest('.check-item');
+    if (!target || !dragItem || target === dragItem) return;
+
+    var rect = target.getBoundingClientRect();
+    var midY = rect.top + rect.height / 2;
+    if (e.clientY < midY) {
+        checklist.insertBefore(dragItem, target);
+    } else {
+        checklist.insertBefore(dragItem, target.nextSibling);
+    }
+    clearDropIndicators();
+    renumber();
+});
+
+function clearDropIndicators() {
+    checklist.querySelectorAll('.drag-over-above, .drag-over-below').forEach(function(el) {
+        el.classList.remove('drag-over-above', 'drag-over-below');
+    });
+}
+
+/* Make items draggable from handle only */
+checklist.querySelectorAll('.check-item').forEach(function(item) {
+    item.setAttribute('draggable', 'false');
+    var handle = item.querySelector('.drag-handle');
+    handle.addEventListener('mousedown', function() { item.setAttribute('draggable', 'true'); });
+    item.addEventListener('dragend', function() { item.setAttribute('draggable', 'false'); });
+});
+
+/* ===== MOBILE TOUCH DRAG ===== */
+var touchItem = null;
+var touchStartY = 0;
+var touchClone = null;
+var touchOffsetY = 0;
+
+checklist.querySelectorAll('.drag-handle').forEach(function(handle) {
+    handle.addEventListener('touchstart', function(e) {
+        var item = handle.closest('.check-item');
+        if (!item) return;
+        touchItem = item;
+        var touch = e.touches[0];
+        var rect = item.getBoundingClientRect();
+        touchStartY = touch.clientY;
+        touchOffsetY = touch.clientY - rect.top;
+
+        /* Create floating clone */
+        touchClone = item.cloneNode(true);
+        touchClone.style.cssText = 'position:fixed;left:' + rect.left + 'px;top:' + rect.top + 'px;width:' + rect.width + 'px;z-index:1000;opacity:0.9;pointer-events:none;box-shadow:0 8px 32px rgba(14,116,144,0.15);';
+        document.body.appendChild(touchClone);
+
+        item.classList.add('dragging');
+        e.preventDefault();
+    }, { passive: false });
+});
+
+document.addEventListener('touchmove', function(e) {
+    if (!touchItem || !touchClone) return;
+    var touch = e.touches[0];
+    touchClone.style.top = (touch.clientY - touchOffsetY) + 'px';
+
+    /* Find drop target */
+    clearDropIndicators();
+    var items = checklist.querySelectorAll('.check-item:not(.dragging)');
+    items.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        if (touch.clientY > rect.top && touch.clientY < rect.bottom) {
+            var midY = rect.top + rect.height / 2;
+            if (touch.clientY < midY) {
+                el.classList.add('drag-over-above');
+            } else {
+                el.classList.add('drag-over-below');
+            }
+        }
+    });
+    e.preventDefault();
+}, { passive: false });
+
+document.addEventListener('touchend', function(e) {
+    if (!touchItem) return;
+
+    /* Find where to drop */
+    var target = checklist.querySelector('.drag-over-above, .drag-over-below');
+    if (target) {
+        if (target.classList.contains('drag-over-above')) {
+            checklist.insertBefore(touchItem, target);
+        } else {
+            checklist.insertBefore(touchItem, target.nextSibling);
+        }
+    }
+
+    touchItem.classList.remove('dragging');
+    clearDropIndicators();
+    if (touchClone) { document.body.removeChild(touchClone); touchClone = null; }
+    touchItem = null;
+    renumber();
+});
+
+/* ===== INIT ===== */
+bindCheckboxes();
+renumber();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Roomberg Full Data — Gulf Print & Pack 2026">
+    <meta name="theme-color" content="#f4f1eb">
+    <title>Roomberg Full Data — Gulf Print & Pack 2026 × HotelMap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════════
+           ANALYST LIGHT THEME (default) — Tufte Mode
+           Tokens: design-tokens-analyst.json
+           ═══════════════════════════════════════════════════ */
+        :root {
+            --ink-black: #f4f1eb;
+            --dark-grey: #fefdfb;
+            --mid-dark: #faf8f4;
+            --newsprint: #1c1917;
+            --newsprint-dim: rgba(28,25,23,0.78);
+            --cyan-accent: #0e7490;
+            --cyan-glow: rgba(14,116,144,0.02);
+            --cyan-bright: #0891b2;
+            --text-grey: #7a7267;
+            --rule-grey: #e8e4dd;
+            --leaked-red: #c2410c;
+            --leaked-glow: rgba(194,65,12,0.02);
+            --positive: #15803d;
+            --negative: #b91c1c;
+            --purple-accent: #7e6bb5;
+            --purple-glow: rgba(126,107,181,0.02);
+            /* Data colours (Helmholtz-Kohlrausch desaturated) */
+            --col-hm: #0e7490;
+            --col-agency: #7e6bb5;
+            --col-duplo: #a16207;
+            --col-links: #b44d73;
+            --col-none: #a8a29e;
+            --gutter: 40px;
+            /* Analyst: teal-tinted card shadows (Tufte/Albers) */
+            --card-shadow: 0 1px 2px rgba(14,116,144,0.04), 0 2px 8px rgba(14,116,144,0.03);
+            --card-hover-glow: 0 2px 8px rgba(14,116,144,0.06), 0 8px 24px rgba(14,116,144,0.04);
+            --card-radius: 3px;
+            --tooltip-shadow: 0 1px 3px rgba(14,116,144,0.06), 0 4px 16px rgba(14,116,144,0.08);
+            /* Table */
+            --header-bg: rgba(14,116,144,0.04);
+            --row-hover: rgba(14,116,144,0.03);
+            --row-divider: rgba(28,25,23,0.06);
+            --row-stripe: rgba(14,116,144,0.015);
+            --thead-bg: rgba(244,241,235,0.97);
+            /* Analyst: zero decoration */
+            --particle-opacity: 0;
+            --progress-glow: 0px;
+            --bar-glow: none;
+            /* Heatmap cell palette (desaturated for light bg) */
+            --pc-neg-fg: #15803d;     --pc-neg-bg: rgba(21,128,61,0.07);
+            --pc-zero-fg: rgba(28,25,23,0.45);  --pc-zero-bg: rgba(28,25,23,0.03);
+            --pc-low-fg: #a16207;     --pc-low-bg: rgba(161,98,7,0.06);
+            --pc-mid-fg: #b44d73;     --pc-mid-bg: rgba(180,77,115,0.06);
+            --pc-high-fg: #c2410c;    --pc-high-bg: rgba(194,65,12,0.06);
+            --pc-na-fg: #a8a29e;
+            --pc-nr-fg: #e8e4dd;
+            /* Private columns */
+            --priv-tint: rgba(126,107,181,0.02);
+            --priv-hover: rgba(126,107,181,0.04);
+            /* Legend chip */
+            --chip-hover: rgba(14,116,144,0.04);
+            --chip-active-bg: rgba(14,116,144,0.08);
+            --chip-active-ring: rgba(14,116,144,0.2);
+            /* Toolbar */
+            --toolbar-bg: rgba(244,241,235,0.95);
+            --search-bg: #fefdfb;
+            --search-dim: #a8a29e;
+            --filter-active-text: #fff;
+            /* Swatch legend colours (semi-transparent for light bg) */
+            --sw-neg: rgba(21,128,61,0.5);
+            --sw-zero: rgba(28,25,23,0.12);
+            --sw-low: rgba(161,98,7,0.4);
+            --sw-mid: rgba(180,77,115,0.4);
+            --sw-high: rgba(194,65,12,0.5);
+            --sw-na: #a8a29e;
+        }
+
+        /* ═══════════════════════════════════════════════════
+           ONEPAGER DARK THEME — Cinematic Mode
+           Tokens: design-tokens-onepager.json
+           ═══════════════════════════════════════════════════ */
+        [data-theme="dark"] {
+            --ink-black: #0a0a0a;
+            --dark-grey: #1a1a1a;
+            --mid-dark: #141414;
+            --newsprint: #f8f6f1;
+            --newsprint-dim: rgba(248,246,241,0.9);
+            --cyan-accent: #00a3c4;
+            --cyan-glow: rgba(0,163,196,0.6);
+            --cyan-bright: #00d4ff;
+            --text-grey: #888;
+            --rule-grey: #333;
+            --leaked-red: #c44a00;
+            --leaked-glow: rgba(196,74,0,0.4);
+            --positive: #42be65;
+            --negative: #da1e28;
+            --purple-accent: #a855f7;
+            --purple-glow: rgba(168,85,247,0.4);
+            --col-hm: #00a3c4;
+            --col-agency: #be95ff;
+            --col-duplo: #f1c21b;
+            --col-links: #ee5396;
+            --col-none: #555;
+            --card-shadow: none;
+            --card-hover-glow: 0 0 60px rgba(0,163,196,0.12);
+            --card-radius: 0;
+            --tooltip-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            --header-bg: rgba(255,255,255,0.04);
+            --row-hover: rgba(0,163,196,0.04);
+            --row-divider: rgba(255,255,255,0.04);
+            --row-stripe: rgba(255,255,255,0.01);
+            --thead-bg: rgba(10,10,10,0.97);
+            --particle-opacity: 1;
+            --progress-glow: 12px;
+            --bar-glow: 0 0 12px rgba(0,163,196,0.6);
+            --pc-neg-fg: #42be65;     --pc-neg-bg: rgba(66,190,101,0.1);
+            --pc-zero-fg: rgba(248,246,241,0.5); --pc-zero-bg: rgba(248,246,241,0.04);
+            --pc-low-fg: #f1c21b;     --pc-low-bg: rgba(241,194,27,0.06);
+            --pc-mid-fg: #ee5396;     --pc-mid-bg: rgba(238,83,150,0.07);
+            --pc-high-fg: #c44a00;    --pc-high-bg: rgba(196,74,0,0.1);
+            --pc-na-fg: #444;
+            --pc-nr-fg: #2a2a2a;
+            --priv-tint: rgba(168,85,247,0.02);
+            --priv-hover: rgba(168,85,247,0.05);
+            --chip-hover: rgba(255,255,255,0.04);
+            --chip-active-bg: rgba(255,255,255,0.08);
+            --chip-active-ring: rgba(255,255,255,0.15);
+            --toolbar-bg: rgba(10,10,10,0.95);
+            --search-bg: #1a1a1a;
+            --search-dim: #555;
+            --filter-active-text: #0a0a0a;
+            --sw-neg: rgba(66,190,101,0.6);
+            --sw-zero: rgba(248,246,241,0.15);
+            --sw-low: rgba(241,194,27,0.3);
+            --sw-mid: rgba(238,83,150,0.3);
+            --sw-high: rgba(196,74,0,0.4);
+            --sw-na: #333;
+        }
+
+        /* ═══════════════════════════════════════════════════
+           BASE STYLES
+           ═══════════════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            background: var(--ink-black);
+            font-family: 'Source Serif 4', Georgia, serif;
+            color: var(--newsprint);
+            line-height: 1.65;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: var(--cyan-accent);
+            box-shadow: var(--bar-glow);
+            z-index: 9999; width: 0%; transition: width 0.1s linear;
+        }
+        #particle-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+            opacity: var(--particle-opacity);
+            transition: opacity 0.4s ease;
+        }
+
+        /* ── Header ── */
+        .page-header {
+            position: relative; z-index: 2;
+            padding: 60px var(--gutter) 40px;
+            border-bottom: 1px solid var(--rule-grey);
+            transition: border-color 0.3s;
+        }
+        .masthead {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; letter-spacing: 0.4em;
+            text-transform: uppercase; color: var(--text-grey);
+            margin-bottom: 30px;
+            display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+        }
+        .masthead a { color: var(--cyan-accent); text-decoration: none; transition: color 0.2s; }
+        .masthead a:hover { color: var(--cyan-bright); }
+        .header-grid {
+            display: grid; grid-template-columns: 1fr auto;
+            gap: 40px; align-items: end; max-width: 1600px;
+        }
+        .header-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(32px, 5vw, 56px); font-weight: 700;
+            line-height: 1.1; letter-spacing: -0.02em;
+            color: var(--newsprint); margin-bottom: 10px;
+        }
+        .header-title .accent { color: var(--cyan-accent); font-style: italic; }
+        .header-sub {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px; color: var(--text-grey); margin-top: 8px;
+        }
+        .header-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+        .hstat {
+            text-align: center; padding: 14px 20px;
+            border: 1px solid var(--rule-grey);
+            background: var(--dark-grey); min-width: 90px;
+            border-radius: var(--card-radius);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s;
+        }
+        .hstat-val {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px; font-weight: 700; line-height: 1;
+            color: var(--newsprint);
+        }
+        .hstat-val.cyan { color: var(--cyan-accent); text-shadow: 0 0 30px var(--cyan-glow); }
+        .hstat-val.red { color: var(--leaked-red); }
+        .hstat-val.purple { color: var(--purple-accent); text-shadow: 0 0 20px var(--purple-glow); }
+        .hstat-val.green { color: var(--positive); }
+        .hstat-lbl {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--text-grey); margin-top: 6px;
+        }
+
+        /* ── Theme toggle ── */
+        .theme-toggle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 7px 14px;
+            border: 1px solid var(--rule-grey);
+            background: var(--dark-grey); color: var(--text-grey);
+            cursor: pointer; transition: all 0.25s ease;
+            border-radius: var(--card-radius);
+            white-space: nowrap;
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-left: auto;
+        }
+        .theme-toggle:hover { border-color: var(--cyan-accent); color: var(--newsprint); }
+        .theme-toggle .t-icon { font-size: 14px; line-height: 1; }
+
+        /* ── Toolbar ── */
+        .toolbar {
+            position: sticky; top: 3px; z-index: 100;
+            background: var(--toolbar-bg); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--rule-grey);
+            padding: 14px var(--gutter);
+            display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+            transition: all 0.3s;
+        }
+        .search-box {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px; letter-spacing: 0.05em;
+            padding: 9px 16px 9px 36px;
+            background: var(--search-bg); border: 1px solid var(--rule-grey);
+            color: var(--newsprint); outline: none; width: 240px;
+            transition: border-color 0.2s, background 0.3s, color 0.3s;
+            border-radius: var(--card-radius);
+        }
+        .search-box:focus { border-color: var(--cyan-accent); }
+        .search-box::placeholder { color: var(--search-dim); }
+        .search-wrap { position: relative; }
+        .search-icon {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            color: var(--search-dim); font-size: 14px; pointer-events: none;
+        }
+        .filter-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 9px 14px;
+            border: 1px solid var(--rule-grey);
+            background: transparent; color: var(--text-grey);
+            cursor: pointer; transition: all 0.25s ease;
+            white-space: nowrap; border-radius: var(--card-radius);
+        }
+        .filter-btn:hover { border-color: var(--cyan-accent); color: var(--newsprint); }
+        .filter-btn.active {
+            background: var(--cyan-accent); color: var(--filter-active-text);
+            border-color: var(--cyan-accent); font-weight: 500;
+        }
+        .result-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px; letter-spacing: 0.1em;
+            color: var(--text-grey); margin-left: auto;
+        }
+        .result-count span { color: var(--cyan-accent); }
+
+        /* ── Legend ── */
+        .legend-bar {
+            display: flex; gap: 16px; padding: 10px var(--gutter);
+            background: var(--mid-dark); border-bottom: 1px solid var(--rule-grey);
+            position: relative; z-index: 2; flex-wrap: wrap;
+            transition: all 0.3s;
+        }
+        .legend-chip {
+            display: flex; align-items: center; gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--text-grey);
+            cursor: pointer; padding: 4px 8px; border-radius: 3px;
+            transition: all 0.2s;
+        }
+        .legend-chip:hover { color: var(--newsprint); background: var(--chip-hover); }
+        .legend-chip.active { color: var(--newsprint); background: var(--chip-active-bg); outline: 1px solid var(--chip-active-ring); }
+        .legend-swatch { width: 14px; height: 8px; border-radius: 1px; }
+
+        /* ── Data table ── */
+        .table-wrap { position: relative; z-index: 2; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .data-table { width: 100%; border-collapse: collapse; min-width: 1400px; }
+        .data-table thead { position: sticky; top: 48px; z-index: 50; }
+        .data-table th:first-child, .data-table td:first-child { padding-left: var(--gutter); }
+        .data-table th:last-child, .data-table td:last-child { padding-right: var(--gutter); }
+        .data-table th {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--cyan-accent); text-align: left; padding: 10px 8px;
+            border-bottom: 2px solid var(--rule-grey);
+            background: var(--thead-bg); backdrop-filter: blur(8px);
+            white-space: nowrap; cursor: pointer; user-select: none;
+            transition: color 0.2s;
+        }
+        .data-table th:hover { color: var(--cyan-bright); }
+        .data-table th.c { text-align: center; }
+        .data-table th.r { text-align: right; }
+        .data-table th .sa { opacity: 0.3; margin-left: 3px; }
+        .data-table th.sorted .sa { opacity: 1; color: var(--cyan-accent); }
+        .data-table th.priv { color: var(--purple-accent); }
+        .data-table th.priv:hover { color: var(--purple-accent); filter: brightness(1.15); }
+        .data-table th.priv.sorted .sa { color: var(--purple-accent); }
+        .data-table .group-row th { padding: 6px 8px; font-size: 8px; letter-spacing: 0.2em; border-bottom: 1px solid var(--rule-grey); }
+        .data-table .group-row .grp-pub { color: var(--cyan-accent); background: var(--header-bg); text-align: center; }
+        .data-table .group-row .grp-priv { color: var(--purple-accent); background: var(--priv-tint); text-align: center; }
+        .data-table td { padding: 8px 8px; border-bottom: 1px solid var(--row-divider); font-size: 13px; vertical-align: middle; transition: background 0.15s; }
+        .data-table tbody tr { transition: background 0.15s; }
+        .data-table tbody tr:hover { background: var(--row-hover); }
+        .data-table tbody tr:nth-child(even) { background: var(--row-stripe); }
+        .data-table tbody tr:nth-child(even):hover { background: var(--row-hover); }
+        .data-table td.div, .data-table th.div { border-left: 2px solid var(--rule-grey); }
+        .rn { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--col-none); text-align: right; width: 30px; padding-right: 6px; }
+        .hn { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; color: var(--newsprint); max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .hn.has-juniper { color: var(--cyan-accent); }
+        .stars-cell { text-align: center; white-space: nowrap; }
+        .sp { display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin: 0 1px; }
+        .sp.on { background: var(--cyan-accent); box-shadow: 0 0 4px var(--cyan-glow); }
+        .sp.off { border: 1px solid var(--rule-grey); }
+        .dist { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-grey); text-align: right; white-space: nowrap; }
+        .mp { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-grey); text-align: right; white-space: nowrap; }
+        .mp .cur { font-size: 8px; opacity: 0.6; }
+
+        /* ── Price cells (fully token-driven) ── */
+        .pc { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; text-align: center; letter-spacing: 0.04em; padding: 4px 6px; border-radius: 3px; cursor: default; white-space: nowrap; }
+        .pc.neg  { color: var(--pc-neg-fg);  background: var(--pc-neg-bg); }
+        .pc.zero { color: var(--pc-zero-fg); background: var(--pc-zero-bg); }
+        .pc.low  { color: var(--pc-low-fg);  background: var(--pc-low-bg); }
+        .pc.mid  { color: var(--pc-mid-fg);  background: var(--pc-mid-bg); }
+        .pc.high { color: var(--pc-high-fg); background: var(--pc-high-bg); }
+        .pc.na   { color: var(--pc-na-fg); font-size: 9px; letter-spacing: 0.08em; }
+        .pc.nr   { color: var(--pc-nr-fg); }
+        td.priv-col { background: var(--priv-tint); }
+        tr:hover td.priv-col { background: var(--priv-hover); }
+
+        /* ── Tooltip ── */
+        .tip { position: fixed; z-index: 9999; background: var(--dark-grey); border: 1px solid var(--rule-grey); padding: 12px 16px; pointer-events: none; opacity: 0; transition: opacity 0.15s; max-width: 420px; box-shadow: var(--tooltip-shadow); border-radius: var(--card-radius); }
+        .tip.show { opacity: 1; }
+        .tip-name { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--newsprint); margin-bottom: 4px; line-height: 1.2; }
+        .tip-meta { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-grey); letter-spacing: 0.05em; margin-bottom: 10px; }
+        .tip-heading { font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 0 4px; margin-top: 8px; border-top: 1px solid var(--rule-grey); }
+        .tip-heading.cyan { color: var(--cyan-accent); }
+        .tip-heading.purple { color: var(--purple-accent); }
+        .tip-grid { display: grid; grid-template-columns: 70px 65px 65px 60px; gap: 0; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.03em; }
+        .tip-grid-hdr { color: var(--col-none); text-transform: uppercase; font-size: 8px; letter-spacing: 0.08em; padding: 2px 0; }
+        .tip-grid-label { color: var(--text-grey); text-transform: uppercase; padding: 3px 0; }
+        .tip-grid-val { color: var(--newsprint); text-align: right; padding: 3px 0; }
+        .tip-grid-val.green { color: var(--positive); }
+        .tip-grid-val.amber { color: var(--pc-low-fg); }
+        .tip-grid-val.red { color: var(--leaked-red); }
+        .tip-grid-val.dim { color: var(--col-none); }
+
+        /* ── Footer ── */
+        .page-footer { text-align: center; padding: 60px var(--gutter); border-top: 1px solid var(--rule-grey); position: relative; z-index: 2; }
+        .footer-text { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-grey); line-height: 2; }
+
+        /* ── Accessibility ── */
+        :focus-visible { outline: 2px solid var(--cyan-accent); outline-offset: 2px; }
+
+        /* ── Print ── */
+        @media print {
+            .progress-bar, #particle-canvas, .theme-toggle { display: none !important; }
+            body { background: #fff !important; color: #1c1917 !important; }
+            .data-table th { background: #fff !important; }
+            .hstat { box-shadow: none !important; }
+        }
+
+        /* ── Reduced motion ── */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            :root { --gutter: 16px; }
+            .page-header { padding: 30px var(--gutter) 20px; }
+            .masthead { font-size: 9px; letter-spacing: 0.3em; margin-bottom: 16px; }
+            .header-grid { grid-template-columns: 1fr; gap: 16px; }
+            .header-title { font-size: 28px; }
+            .header-sub { font-size: 13px; line-height: 1.5; }
+            .header-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+            .hstat { min-width: 0; padding: 10px 8px; }
+            .hstat-val { font-size: 20px; }
+            .hstat-lbl { font-size: 8px; letter-spacing: 0.08em; }
+            .toolbar { padding: 10px var(--gutter); gap: 6px; }
+            .search-box { width: 100%; order: -1; }
+            .search-wrap { width: 100%; order: -1; }
+            .filter-btn { font-size: 9px; padding: 7px 10px; flex: 0 0 auto; }
+            .result-count { width: 100%; text-align: right; margin-left: 0; margin-top: 4px; }
+            .legend-bar { padding: 8px var(--gutter); gap: 6px; }
+            .legend-chip { font-size: 8px; padding: 3px 6px; }
+            .table-wrap::after {
+                content: '\2192 SCROLL'; position: sticky; top: 100px; right: 0;
+                display: block; text-align: right; padding: 6px 12px;
+                font-family: 'JetBrains Mono', monospace; font-size: 9px;
+                letter-spacing: 0.15em; color: var(--cyan-accent); opacity: 0.6;
+                pointer-events: none; margin-top: -24px; height: 0;
+            }
+            .data-table { min-width: 1100px; }
+            .data-table thead { top: 42px; }
+            .hn { max-width: 150px; font-size: 12px; }
+            .data-table th { font-size: 8px; padding: 8px 6px; }
+            .data-table td { padding: 6px 6px; font-size: 12px; }
+            .data-table th:first-child, .data-table td:first-child { padding-left: var(--gutter); }
+            .data-table th:last-child, .data-table td:last-child { padding-right: var(--gutter); }
+            .pc { font-size: 10px; padding: 3px 4px; }
+            .dist { font-size: 10px; }
+            .mp { font-size: 9px; }
+            .rn { font-size: 9px; }
+            .page-footer { padding: 30px var(--gutter); }
+            .footer-text { font-size: 9px; }
+            .theme-toggle { font-size: 9px; padding: 5px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progress"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <header class="page-header">
+        <div class="masthead">
+            <a href='/'>← Summary</a>
+            <span>Roomberg × HotelMap · 2026</span>
+            <button class="theme-toggle" id="themeToggle" aria-label="Switch between Analyst and OnePager themes">
+                <span class="t-icon" id="themeIcon">☀</span>
+                <span id="themeLabel">Analyst</span>
+            </button>
+        </div>
+        <div class="header-grid">
+            <div>
+                <h1 class="header-title">Gulf Print & Pack 2026 <span class="accent">Full Data</span></h1>
+                <p class="header-sub">All 686 Dubai hotels queried, sorted by distance from Dubai World Trade Centre. 30 Mar – 2 Apr 2026, 3 nights, 1 adult. Hover any row for full price breakdown.</p>
+            </div>
+            <div class="header-stats">
+                <div class="hstat"><div class="hstat-val cyan">686</div><div class="hstat-lbl">Hotels Queried</div></div>
+                <div class="hstat"><div class="hstat-val">36</div><div class="hstat-lbl">Has Juniper Rate</div></div>
+                <div class="hstat"><div class="hstat-val red">8</div><div class="hstat-lbl">JNP 5%+ Cheaper (Mkt)</div></div>
+                <div class="hstat"><div class="hstat-val purple">0</div><div class="hstat-lbl">JNP 5%+ Cheaper (HM)</div></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="toolbar" id="toolbar">
+        <div class="search-wrap">
+            <span class="search-icon">&#x2315;</span>
+            <input type="text" class="search-box" id="search" placeholder="Search hotels...">
+        </div>
+        <button class="filter-btn active" data-f="all">ALL</button>
+        <button class="filter-btn" data-f="juniper">HAS JUNIPER</button>
+        <button class="filter-btn" data-f="market">MARKET ONLY</button>
+        <button class="filter-btn" data-f="none">NO RATES</button>
+        <button class="filter-btn" data-f="green">JNP CHEAPER (MKT)</button>
+        <button class="filter-btn" data-f="5km">WITHIN 5 KM</button>
+        <div class="result-count" id="count"><span>686</span> hotels</div>
+    </div>
+
+    <div class="legend-bar">
+        <div class="legend-chip" data-lf="neg"><div class="legend-swatch" style="background:var(--sw-neg);"></div>Juniper 5%+ Cheaper</div>
+        <div class="legend-chip" data-lf="zero"><div class="legend-swatch" style="background:var(--sw-zero);"></div>Same (within 5%)</div>
+        <div class="legend-chip" data-lf="low"><div class="legend-swatch" style="background:var(--sw-low);"></div>+5% to +10%</div>
+        <div class="legend-chip" data-lf="mid"><div class="legend-swatch" style="background:var(--sw-mid);"></div>+11% to +20%</div>
+        <div class="legend-chip" data-lf="high"><div class="legend-swatch" style="background:var(--sw-high);"></div>&gt; +20%</div>
+        <div class="legend-chip" data-lf="na"><div class="legend-swatch" style="background:var(--sw-na);"></div>JNP NA</div>
+    </div>
+
+    <div class="table-wrap">
+        <table class="data-table" id="tbl">
+            <thead>
+                <tr class="group-row">
+                    <th colspan="5"></th>
+                    <th colspan="3" class="grp-pub">vs Market Rates</th>
+                    <th colspan="3" class="grp-priv div">vs HM Private Rates</th>
+                </tr>
+                <tr>
+                    <th style="width:30px">#</th>
+                    <th data-col="n">Hotel <span class="sa">↕</span></th>
+                    <th data-col="s" class="c" style="width:80px">Stars <span class="sa">↕</span></th>
+                    <th data-col="d" class="r sorted" style="width:80px">Dist <span class="sa">▲</span></th>
+                    <th data-col="mc" class="r" style="width:90px">Market <span class="sa">↕</span></th>
+                    <th data-col="c" class="c" style="width:90px">Cheapest <span class="sa">↕</span></th>
+                    <th data-col="b" class="c" style="width:90px">Bkfst <span class="sa">↕</span></th>
+                    <th data-col="f" class="c" style="width:90px">Flex <span class="sa">↕</span></th>
+                    <th data-col="pc" class="c priv div" style="width:90px">Cheapest <span class="sa">↕</span></th>
+                    <th data-col="pb" class="c priv" style="width:90px">Bkfst <span class="sa">↕</span></th>
+                    <th data-col="pf" class="c priv" style="width:90px">Flex <span class="sa">↕</span></th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="tip" id="tip"></div>
+
+    <footer class="page-footer">
+        <div class="footer-text">
+            Data as of Feb 26, 2026 · Source: Roomberg via Juniper<br>
+            Roomberg Price Heatmap · Gulf Print & Pack 2026 · HotelMap · Confidential
+        </div>
+    </footer>
+
+    <script>
+    /* ═══════ DATA ═══════ */
+    const H = [["Sheraton Grand Hotel, Dubai",5,0.17,null,null,null,1091,0,"USD",null,null,null,1166,0,1156,0,1030,1101,1091],["The H Hotel Dubai",5,0.19,null,null,null,1003,0,"USD",null,null,null,1042,0,1254,0,961,998,1201],["Jumeirah Living - World Trade Centre",5,0.21,null,null,null,2376,0,"USD",null,null,null,2426,0,2376,0,2263,2309,2263],["One&Only One Za'abeel",5,0.25,null,null,null,3030,0,"USD",null,null,null,3030,0,3030,0,2919,2919,2919],["SIRO One Za'abeel",5,0.25,null,null,null,1564,0,"USD",null,null,null,2006,0,1564,0,1507,2006,1507],["Fairmont Dubai",5,0.45,null,null,null,1352,0,"USD",null,null,null,1492,0,1511,0,1318,1435,1511],["Rove Trade Centre",3,0.46,null,null,null,583,0,"USD",null,null,null,660,0,583,0,561,636,561],["Conrad Dubai",5,0.53,null,null,null,1293,0,"USD",null,null,null,1359,0,1505,0,1262,1327,1450],["The Apartments, Dubai World Trade Centre",3,0.6,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Courtyard by Marriott World Trade Centre, Dubai",4,0.61,null,null,null,1100,0,"USD",null,null,null,1136,0,1100,0,1037,1136,1037],["ibis World Trade Centre Dubai",3,0.66,null,null,null,837,0,"USD",null,null,null,893,0,0,0,815,870,0],["voco Dubai by IHG",5,0.67,null,null,null,936,0,"USD",null,null,null,1186,0,1226,0,883,1018,1226],["Ascott Park Place Dubai",5,0.71,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Nassima Tower Hotel Apartments",5,0.77,null,null,null,803,0,"USD",null,null,null,952,0,892,0,695,824,772],["ibis One Central",3,0.79,null,null,null,665,0,"USD",null,null,null,713,0,0,0,648,694,0],["Novotel World Trade Centre",4,0.81,null,null,null,1189,0,"USD",null,null,null,1263,0,0,0,1146,1217,0],["Rose Executive Hotel - DWTC",3,0.85,null,null,null,714,0,"USD",null,null,null,803,0,714,0,690,776,690],["The Muse 22",4,1.0,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["25hours Hotel Dubai One Central",5,1.08,18.0,17.0,0.3,1191,1405,"USD",23.4,17.0,4.9,1263,1478,1401,1405,1139,1263,1340],["Luxe Avenue Hotel",4,1.14,null,null,null,252,0,"USD",null,null,null,269,0,0,0,225,240,0],["Millennium Plaza Downtown Hotel, Dubai",5,1.15,null,null,null,688,0,"USD",null,null,null,733,0,699,0,650,693,660],["Millennium Plaza Downtown Suites, Dubai",5,1.17,null,null,null,694,0,"USD",null,null,null,739,0,694,0,649,688,649],["Four Seasons Hotel Dubai International Financial Centre",5,1.24,null,null,null,3050,0,"USD",null,null,null,0,0,3050,0,2878,0,2878],["Jumeirah Emirates Towers Dubai",5,1.32,null,null,null,1451,0,"USD",null,null,null,1511,0,1461,0,1398,1455,1407],["Element Al Mina, Dubai Jumeirah",4,1.53,null,null,null,393,0,"USD",null,null,null,393,0,393,0,380,380,382],["The Tower Plaza Hotel Dubai",5,1.54,null,null,null,578,0,"USD",null,null,null,604,0,578,0,555,580,555],["Jumeira Rotana",4,1.68,null,null,null,343,0,"USD",null,null,null,405,0,429,0,335,395,418],["Al Khoory Executive Hotel",3,1.78,14.2,12.9,2.8,263,300,"USD",28.3,26.8,13.3,298,336,292,300,234,265,265],["Crowne Plaza Dubai Jumeirah by IHG",5,1.82,null,null,null,578,0,"USD",null,null,null,678,0,619,0,545,640,584],["Fortune Karama Hotel",3,1.84,null,null,null,170,0,"USD",null,null,null,220,0,174,0,163,210,166],["Grayton Hotel Dubai",4,1.87,null,null,null,380,0,"USD",null,null,null,426,0,463,0,380,426,463],["Ritz Carlton Residences DIFC Downtown Dubai",5,1.91,null,null,null,2101,0,"USD",null,null,null,2201,0,2101,0,1985,2079,1985],["Capitol Hotel Jumeirah Dubai",4,1.98,null,null,null,324,0,"USD",null,null,null,369,0,326,0,324,369,326],["The Ritz-Carlton, Dubai International Financial Centre",5,1.99,null,null,null,2176,0,"USD",null,null,null,2276,0,2176,0,2054,2148,2054],["ibis Styles Dubai Jumeira",3,2.0,null,null,null,321,0,"USD",null,null,null,341,0,338,0,281,298,295],["Four Points by Sheraton Sheikh Zayed Road, Dubai",4,2.01,null,null,null,698,0,"USD",null,null,null,743,0,698,0,674,717,674],["Al Waleed Holiday Homes",4.5,2.02,null,null,null,338,0,"USD",null,null,null,0,0,375,0,304,0,338],["Mercure Gold Hotel Jumeirah Dubai by Accor",4,2.03,null,null,null,338,0,"USD",null,null,null,399,0,358,0,311,357,311],["Waldorf Astoria Dubai International Financial Centre",5,2.07,null,null,null,1686,0,"USD",null,null,null,1747,0,1936,0,1686,1804,1824],["Gevora Hotel",4,2.1,null,null,null,750,0,"USD",null,null,null,811,0,882,0,633,705,633],["President Hotel",2,2.13,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Towers Rotana",4,2.15,null,null,null,657,0,"USD",null,null,null,699,0,657,0,636,676,636],["Sitara Hotel Apartment",3,2.17,null,null,null,348,0,"USD",null,null,null,429,0,387,0,338,415,376],["Rose Rayhaan by Rotana",4,2.18,null,null,null,688,0,"USD",null,null,null,729,0,765,0,668,707,742],["Hyatt Place Dubai Jumeirah",4,2.2,null,null,null,548,0,"USD",null,null,null,548,0,548,0,475,475,475],["Hyatt Place Dubai Jumeirah Residences",4,2.25,null,null,null,512,0,"USD",null,null,null,617,0,512,0,496,596,496],["Holiday Inn Express Dubai Jumeirah by IHG",3,2.29,null,null,null,334,0,"USD",null,null,null,334,0,437,0,308,308,403],["Aloft Al Mina, Dubai Jumeirah",4,2.3,7.4,7.4,7.4,317,341,"USD",10.5,10.5,10.5,393,422,317,341,308,382,308],["Staybridge Suites Dubai Financial Centre by IHG",5,2.32,null,null,null,769,0,"USD",null,null,null,769,0,816,0,746,746,816],["La Quinta by Wyndham Dubai Jumeirah",4,2.35,null,null,null,399,0,"USD",null,null,null,0,0,444,0,359,0,399],["Hilton Garden Inn Dubai Jumeirah",4,2.35,null,null,null,328,0,"USD",null,null,null,357,0,381,0,319,347,374],["Arabian Dreams Deluxe Hotel Apartments",4.5,2.36,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Al Manar Grand Hotel Apartments",3,2.36,null,null,null,235,0,"USD",null,null,null,242,0,242,0,228,235,235],["Emirates Grand Hotel",4,2.37,null,null,null,238,0,"USD",null,null,null,282,0,238,0,223,265,223],["Citymax Bur Dubai",3,2.4,null,null,null,266,0,"USD",null,null,null,364,0,301,0,255,349,289],["Gulf Inn Hotel Al Nasr Formerly Roda Links Al Nasr",4,2.4,null,null,null,234,0,"USD",null,null,null,0,0,246,0,213,0,225],["Wescott Plaza Hotel Apartments",4,2.44,null,null,null,247,0,"USD",null,null,null,274,0,275,0,238,274,265],["Number One Tower Suites",3,2.45,null,null,null,607,0,"USD",null,null,null,646,0,0,0,547,582,0],["M\u00f6venpick Hotel & Apartments Bur Dubai",5,2.47,null,null,null,524,0,"USD",null,null,null,550,0,617,0,490,529,593],["Residence Inn by Marriott Sheikh Zayed Road, Dubai",4,2.5,null,null,null,1021,0,"USD",null,null,null,1021,0,1201,0,887,887,1097],["Premiere Hotel Apartments",2,2.51,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Grand Excelsior Hotel Bur Dubai",4,2.53,null,null,null,308,0,"USD",null,null,null,357,0,308,0,308,357,308],["Carlton Downtown",4,2.53,null,null,null,848,0,"USD",null,null,null,1015,0,0,0,848,907,0],["Dubai Marine Beach Resort & Spa",5,2.54,null,null,null,735,0,"USD",null,null,null,780,0,916,0,702,745,875],["Palette Phoenix Hotel",3,2.56,null,null,null,132,0,"USD",null,null,null,0,0,132,0,125,0,125],["Manhattan Avenue Hotel",1,2.57,null,null,null,201,0,"USD",null,null,null,263,0,201,0,182,239,182],["Green House Hotel Apartments",2,2.57,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["SUHA Mina Rashid Hotel Apartments",4.5,2.59,null,null,null,464,0,"USD",null,null,null,464,0,484,0,384,384,401],["XCLUSIVE Hotel Apartments",3,2.6,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Al Jazeera Hotel Apartments LLC",3,2.62,null,null,null,540,0,"USD",null,null,null,0,0,585,0,540,0,540],["Al Shams Plaza Hotel Apartments",3,2.63,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Four Points by Sheraton Bur Dubai",4,2.66,null,null,null,369,0,"USD",null,null,null,398,0,369,0,354,383,354],["Park Regis Kris Kin Hotel Dubai",5,2.67,null,null,null,441,0,"USD",null,null,null,486,0,496,0,423,466,456],["Golden Sands Hotel Apartments",4,2.68,null,null,null,380,0,"USD",null,null,null,470,0,380,0,362,447,362],["The Canvas Hotel Dubai MGallery",5,2.72,null,null,null,550,0,"USD",null,null,null,580,0,550,0,449,475,500],["Xclusive Casa Hotel Apartments",3,2.72,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Roda Metha Suites",3,2.73,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Rove Bur Dubai - Healthcare City",3,2.73,null,null,null,359,0,"USD",null,null,null,414,0,359,0,345,397,345],["DoubleTree by Hilton Dubai M Square Hotel and Residences",5,2.75,null,null,null,445,0,"USD",null,null,null,492,0,517,0,434,492,505],["Shangri-La Residences and Apartments",5,2.77,null,null,null,1005,0,"USD",null,null,null,1351,0,1211,0,969,1302,1167],["Shangri-La Dubai",5,2.78,null,null,null,1077,0,"USD",null,null,null,1147,0,1211,0,1040,1108,1150],["Xclusive Maples Hotel Apartment",4.5,2.78,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Dunes Hotel Apartments Oud Metha",4.5,2.78,null,null,null,268,0,"USD",null,null,null,290,0,0,0,261,283,0],["Shada Hotel Jumeirah Gardens",4,2.82,null,null,null,518,0,"USD",null,null,null,565,0,545,0,501,546,527],["Majestic City Retreat Hotel",4,2.83,null,null,null,366,0,"USD",null,null,null,424,0,563,0,326,378,478],["Hyatt Centric Jumeirah Dubai",5,2.91,null,null,null,1251,0,"USD",null,null,null,1331,0,1251,0,1197,1273,1197],["Dusit Thani Dubai",5,2.92,null,null,null,838,0,"USD",null,null,null,928,0,900,0,713,789,766],["Savoy Park Hotel Apartments",5,2.92,null,null,null,394,0,"USD",null,null,null,552,0,434,0,381,534,420],["Burjuman Arjaan by Rotana - Dubai",4,2.93,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Novotel Bur Dubai",4,2.94,null,null,null,455,0,"USD",null,null,null,471,0,506,0,444,459,493],["Savoy Suites Hotel Apartments",5,2.96,null,null,null,422,0,"USD",null,null,null,591,0,464,0,408,572,449],["Omega Hotel",4,2.96,null,null,null,381,0,"USD",null,null,null,443,0,0,0,361,389,0],["Rove Downtown Dubai",3,2.98,null,null,null,708,0,"USD",null,null,null,790,0,708,0,681,760,681],["Panorama Bur Dubai Hotel",2,2.99,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Sea View Hotel",4,3.0,null,null,null,236,0,"USD",null,null,null,271,0,269,0,228,262,228],["Swiss\u00f4tel Al Murooj Dubai",5,3.04,null,null,null,953,0,"USD",null,null,null,1010,0,953,0,917,972,917],["WESCOTT PEARL HOTEL APARTMENTS",3,3.04,null,null,null,292,0,"USD",null,null,null,321,0,308,0,292,321,308],["Fortune Grand Hotel Apartments",3,3.04,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["City Seasons Towers",4,3.08,null,null,null,380,0,"USD",null,null,null,488,0,423,0,369,473,410],["Desert Rose Hotel Apartments",3,3.11,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Sofitel Dubai The Obelisk",5,3.11,null,null,null,832,0,"USD",null,null,null,897,0,937,0,797,852,797],["Savoy Crest Hotel Apartments",4.5,3.15,null,null,null,402,0,"USD",null,null,null,563,0,442,0,354,495,389],["MRA GRAND",2,3.16,null,null,null,307,0,"USD",null,null,null,0,0,0,0,303,0,0],["Ramee Hotel Apartments",3,3.17,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Rolla Suites Hotel",3,3.17,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Regent Palace Hotel",4,3.21,null,null,null,228,0,"USD",null,null,null,252,0,320,0,228,252,307],["Rolla Residence Hotel Apartment",4.5,3.21,null,null,null,374,0,"USD",null,null,null,382,0,374,0,373,382,373],["Jacob's Garden Hotel",4,3.21,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Savoy Central Hotel Apartments",4,3.22,null,null,null,402,0,"USD",null,null,null,563,0,443,0,389,544,428],["Raintree Rolla Hotel",2.5,3.22,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Imperial Hotel Apartment",3,3.22,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Nihal Residency Hotel Apartments",5,3.28,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Orchid Vue Hotel",4,3.28,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Dock Masters Hotel Apartments",4.5,3.28,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Residence Inn by Marriott Al Jaddaf",4,3.28,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Rove City Walk",3,3.28,null,null,null,513,0,"USD",null,null,null,587,0,513,0,493,565,493],["Raffles Dubai",5,3.29,null,null,null,1222,0,"USD",null,null,null,1282,0,1437,0,1175,1233,1382],["Kempinski The Boulevard Dubai",5,3.31,null,null,null,2590,0,"USD",null,null,null,2715,0,2590,0,2590,2715,2590],["Raviz Center Point Hotel",4,3.32,null,null,null,310,0,"USD",null,null,null,443,0,345,0,301,431,335],["Ramee Royal Hotel",4,3.33,null,null,null,393,0,"USD",null,null,null,413,0,393,0,393,413,393],["Kempinski Central Avenue Dubai",5,3.36,null,null,null,2520,0,"USD",null,null,null,2645,0,2520,0,2410,2645,2410],["Regal Plaza Hotel",3,3.37,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Marriott Hotel Al Jaddaf, Dubai",5,3.37,null,null,null,637,0,"USD",null,null,null,687,0,692,0,637,667,652],["City palace Hotel",0,3.39,null,null,null,388,0,"USD",null,null,null,442,0,0,0,387,440,0],["Fortune Atrium Hotel",4,3.39,null,null,null,221,0,"USD",null,null,null,302,0,245,0,212,289,235],["Rove La Mer Beach, Jumeirah",3,3.4,null,null,null,757,0,"USD",null,null,null,841,0,757,0,727,808,727],["Marriott Executive Apartments Al Jaddaf, Dubai",5,3.41,null,null,null,626,0,"USD",null,null,null,775,0,695,0,572,732,656],["Address Sky View, Downtown Dubai",5,3.42,21.2,21.2,3.0,2210,2678,"USD",26.1,26.1,7.2,2287,2771,2600,2678,2124,2197,2499],["Majestic Premier Hotel Burdubai",4,3.43,null,null,null,363,0,"USD",null,null,null,420,0,558,0,327,378,478],["Royal Ascot Hotel",4,3.43,null,null,null,342,0,"USD",null,null,null,391,0,380,0,325,372,361],["Vista City Hotel",3,3.43,null,null,null,270,0,"USD",null,null,null,0,0,270,0,260,0,260],["Ascot Hotel",4,3.44,null,null,null,230,0,"USD",null,null,null,295,0,255,0,230,284,255],["Concorde Palace Hotel Dubai",2,3.45,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Palm Beach",3,3.45,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Smana Hotel Al Raffa",3,3.45,null,null,null,207,0,"USD",null,null,null,246,0,225,0,194,240,225],["Moon Valley Hotel Apartment - Bur Dubai, Burjuman",3,3.46,null,null,null,197,0,"USD",null,null,null,0,0,0,0,197,0,0],["Zain International Hotel",3,3.48,null,null,null,397,0,"USD",null,null,null,0,0,397,0,397,0,397],["York International Hotel",3,3.49,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Howard Johnson by Wyndham Bur Dubai",3,3.51,null,null,null,213,0,"USD",null,null,null,0,0,250,0,186,0,218],["Admiral Plaza Hotel Dubai",3,3.53,null,null,null,232,0,"USD",null,null,null,267,0,232,0,226,260,226],["La Ville Hotel & Suites CITY WALK, Dubai, Autograph Collection",5,3.54,null,null,null,1114,0,"USD",null,null,null,1312,0,1114,0,1202,1275,1202],["Gateway Hotel",3,3.57,null,null,null,247,0,"USD",null,null,null,280,0,247,0,240,272,240],["Al Khoory Inn",2,3.57,14.3,13.6,2.9,322,368,"USD",29.6,28.8,13.4,341,388,357,368,284,301,324],["Vida Dubai Mall",4,3.6,null,null,null,1180,0,"USD",null,null,null,1180,0,1180,0,1157,1157,1157],["Hyatt Regency Dubai Creek Heights",4,3.67,null,null,null,540,0,"USD",null,null,null,565,0,540,0,512,536,512],["Hyatt Regency Dubai Creek Heights Residences",5,3.69,null,null,null,859,0,"USD",null,null,null,944,0,859,0,716,902,716],["Sofitel Dubai Downtown",5,3.71,null,null,null,1354,0,"USD",null,null,null,1408,0,1670,0,1213,1261,1495],["DAMAC Maison Mall Street",5,3.72,null,null,null,1046,0,"USD",null,null,null,1107,0,1046,0,1013,1071,1013],["Palette Royal Reflections Hotel and Spa Dubai",4,3.72,null,null,null,536,0,"USD",null,null,null,0,0,0,0,532,0,0],["Barcel\u00f3 Al Jaddaf",5,3.72,14.8,14.8,-8.1,800,919,"USD",32.5,32.5,6.0,800,919,1001,919,694,694,867],["Nikki Beach Resort & Spa Dubai",5,3.73,null,null,null,3260,0,"USD",null,null,null,3260,0,3835,0,3098,3098,3644],["Armani Hotel Dubai, Burj Khalifa",5,3.76,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Regal Peninsula",3.5,3.76,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Queen Elizabeth 2 Hotel by Accor",4,3.78,null,null,null,268,0,"USD",null,null,null,308,0,297,0,225,258,243],["Sunday Hotel Holiday international Dubai",4,3.82,null,null,null,232,0,"USD",null,null,null,276,0,232,0,218,260,218],["Grand Nova Hotel",2,3.83,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Address Dubai Mall",5,3.83,null,null,null,2401,0,"USD",null,null,null,2468,0,2401,0,2310,2375,2310],["Millennium Central Downtown Dubai",4,3.85,null,null,null,510,0,"USD",null,null,null,564,0,523,0,433,478,523],["Grand Ambassador Hotel",3,3.86,null,null,null,290,0,"USD",null,null,null,309,0,0,0,288,306,0],["Canopy by Hilton Dubai Al Seef",4,3.86,-0.8,11.4,-7.1,550,545,"USD",3.4,14.2,3.4,562,626,587,545,527,548,527],["Wescott Hotel",3,3.86,null,null,null,306,0,"USD",null,null,null,337,0,323,0,293,323,309],["Grand Astoria Hotel",3,3.87,null,null,null,233,0,"USD",null,null,null,0,0,258,0,233,0,258],["Sun City International Hotel",2,3.88,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hampton by Hilton Dubai Al Seef",3,3.88,null,null,null,363,0,"USD",null,null,null,363,0,394,0,356,356,387],["Arabian Courtyard Hotel & Spa",4,3.89,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Mandarin Oriental Jumeira, Dubai",5,3.92,null,null,null,5124,0,"USD",null,null,null,5310,0,5313,0,4840,5039,5018],["Address Downtown",5,3.93,0.9,0.9,0.9,2401,2423,"USD",5.6,5.6,5.6,2468,2491,2401,2423,2295,2359,2295],["LEVA Hotel Mazaya Centre",4,3.96,null,null,null,446,0,"USD",null,null,null,506,0,446,0,427,478,427],["Damac Maison - The Vogue",5,3.99,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Grand Hyatt Residence",5,3.99,null,null,null,1187,0,"USD",null,null,null,1322,0,1187,0,1064,1185,1064],["Hotel Indigo Dubai Downtown by IHG",5,3.99,null,null,null,1323,0,"USD",null,null,null,1380,0,1470,0,1245,1299,1383],["Grand Hyatt Dubai",5,4.02,null,null,null,1451,0,"USD",null,null,null,1501,0,1451,0,1246,1289,1246],["Palace Downtown",5,4.07,null,null,null,2367,0,"USD",null,null,null,2457,0,2367,0,2274,2361,2274],["Arabian Park Dubai, an Edge by Rotana",3,4.1,22.6,21.2,4.2,342,420,"USD",26.0,24.5,7.1,372,450,403,420,333,362,392],["Radisson Blu Hotel, Dubai Canal View",5,4.16,null,null,null,505,0,"USD",null,null,null,559,0,505,0,488,541,488],["Park Apartments Dubai, an Edge By Rotana Hotel",5,4.22,null,null,null,380,0,"USD",null,null,null,410,0,448,0,370,399,435],["Al Jaddaf Rotana Suite Hotel",5,4.23,21.7,20.5,3.4,525,639,"USD",26.4,25.2,7.5,562,677,617,639,505,541,594],["Ramada by Wyndham Downtown Dubai",4,4.26,null,null,null,1061,0,"USD",null,null,null,1126,0,1061,0,926,982,926],["The George Hotel by Saffron Dubai Creek",3,4.27,null,null,null,421,0,"USD",null,null,null,421,0,421,0,421,421,421],["The Heritage Hotel, Autograph Collection",4,4.28,null,null,null,992,0,"USD",null,null,null,1117,0,1167,0,964,1117,1090],["Premier Inn Dubai Al Jaddaf",3,4.29,null,null,null,269,0,"USD",null,null,null,316,0,269,0,269,316,269],["Al Seef Heritage Hotel Dubai, Curio Collection by Hilton",4,4.3,15.5,22.7,-0.5,458,529,"USD",18.3,25.7,4.1,496,609,532,529,448,484,508],["Vida Downtown Residences",0,4.47,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hotel Boulevard, Autograph Collection",4,4.48,null,null,null,958,0,"USD",null,null,null,1024,0,1064,0,958,1002,1003],["Hilton Dubai Creek Hotel & Residences",5,4.48,null,null,null,611,0,"USD",null,null,null,660,0,717,0,596,645,681],["DoubleTree by Hilton Dubai Al Jadaf",4,4.5,null,null,null,440,0,"USD",null,null,null,482,0,496,0,440,473,471],["Sheraton Dubai Creek Hotel & Towers",5,4.51,null,null,null,608,0,"USD",null,null,null,608,0,610,0,573,591,575],["Taj Dubai",5,4.51,null,null,null,1442,0,"USD",null,null,null,1568,0,1442,0,1389,1510,1389],["Marbella Holiday Homes",4,4.51,null,null,null,378,0,"USD",null,null,null,0,0,545,0,365,0,545],["Novotel Dubai Gold District",4,4.51,null,null,null,382,0,"USD",null,null,null,442,0,448,0,367,425,430],["Paramount Hotel Midtown",5,4.51,null,null,null,1237,0,"USD",null,null,null,1237,0,1455,0,1196,1196,1407],["The Lana - Dorchester Collection",5,4.51,null,null,null,2701,0,"USD",null,null,null,2852,0,2701,0,2227,2351,2227],["Element Al Jaddaf, Dubai",4,4.52,null,null,null,552,0,"USD",null,null,null,552,0,614,0,520,520,578],["DAMAC Maison Canal Views",5,4.56,null,null,null,918,0,"USD",null,null,null,978,0,918,0,888,946,888],["Ramee Dream Hotel Downtown",5,4.59,null,null,null,518,0,"USD",null,null,null,563,0,0,0,464,504,0],["Radisson Blu Hotel, Dubai Deira Creek",5,4.6,null,null,null,440,0,"USD",null,null,null,521,0,489,0,402,475,446],["DAMAC Maison Distinction",4.5,4.6,null,null,null,994,0,"USD",null,null,null,1059,0,994,0,960,1023,960],["Villa Rotana",4,4.62,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Cube Hotel Dubai",0,4.62,null,null,null,215,0,"USD",null,null,null,0,0,215,0,215,0,215],["M\u00f6venpick Dubai Creek",5,4.64,null,null,null,496,0,"USD",null,null,null,536,0,584,0,476,514,539],["Marriott Marquis Dubai Creek",5,4.65,null,null,null,629,0,"USD",null,null,null,689,0,629,0,572,685,572],["Al Bandar Arjaan by Rotana - Dubai Creek",5,4.66,null,null,null,659,0,"USD",null,null,null,709,0,776,0,640,689,753],["City Premiere Hotel Apartment",4,4.67,null,null,null,642,0,"USD",null,null,null,686,0,755,0,540,578,635],["Al Bandar Rotana \u2013 Dubai Creek",5,4.67,22.7,21.3,4.3,621,762,"USD",26.2,24.8,7.2,671,813,730,762,604,652,710],["Samaya Hotel Deira",4.5,4.68,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Best Western Plus Pearl Creek",4,4.69,null,null,null,386,0,"USD",null,null,null,411,0,0,0,340,391,0],["Al Khaleej Grand Hotel",3,4.69,null,null,null,223,0,"USD",null,null,null,237,0,0,0,215,228,0],["Galaxy Plaza Hotel",1,4.69,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Riviera Hotel Dubai",4,4.7,null,null,null,349,0,"USD",null,null,null,439,0,0,0,298,375,0],["Paramount Hotel Dubai",5,4.71,null,null,null,862,0,"USD",null,null,null,928,0,971,0,831,895,937],["Carlton Dubai Creek Hotel",4,4.71,null,null,null,544,0,"USD",null,null,null,640,0,604,0,544,613,579],["Carlton Tower Hotel",4,4.72,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["DoubleTree by Hilton Dubai - Business Bay",4,4.72,null,null,null,1245,0,"USD",null,null,null,1310,0,1353,0,1214,1278,1259],["FORM Hotel Al Jaddaf, Dubai, a Member of Design Hotels",4,4.73,null,null,null,271,0,"USD",null,null,null,396,0,271,0,261,381,261],["Unlock J One",4,4.74,null,null,null,707,0,"USD",null,null,null,0,0,707,0,690,0,690],["MOUNT SINA HOTEL BY AURA",1,4.76,null,null,null,150,0,"USD",null,null,null,165,0,164,0,145,159,158],["Park Hyatt Dubai",5,4.77,null,null,null,2211,0,"USD",null,null,null,2711,0,2211,0,2139,2623,2139],["SKAF Hotel",2.5,4.77,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["S19 Hotel-Al Jaddaf Metro Station",3,4.77,null,null,null,360,0,"USD",null,null,null,368,0,400,0,360,368,400],["DEIRA PALACE HOTEL",2,4.77,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Al Khaleej Palace Deira Hotel",4,4.78,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Sun and Sands Plaza Hotel",3,4.79,null,null,null,200,0,"USD",null,null,null,0,0,200,0,192,0,192],["Hyatt Place Dubai Baniyas Square",4,4.8,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Royal Prince Hotel",1,4.81,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Edge Creekside Hotel",4,4.81,null,null,null,344,0,"USD",null,null,null,423,0,403,0,333,410,381],["Mariana Hotel",1,4.82,null,null,null,204,0,"USD",null,null,null,0,0,0,0,197,0,0],["Royal Concorde Hotel & Suite",4,4.83,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Pearl Executive Hotel Apartments",0,4.83,null,null,null,258,0,"USD",null,null,null,270,0,0,0,250,261,0],["White Fort Hotel",1,4.85,null,null,null,223,0,"USD",null,null,null,253,0,0,0,216,245,0],["Landmark Hotel",3,4.85,null,null,null,244,0,"USD",null,null,null,304,0,271,0,234,292,260],["Wave International Hotel",2,4.86,null,null,null,258,0,"USD",null,null,null,278,0,258,0,258,278,258],["Florida City Hotel Apartments",4.5,4.87,null,null,null,324,0,"USD",null,null,null,342,0,0,0,285,300,0],["Florida Square Hotel",3.5,4.87,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Knight Castle Hotel - Formerly known as Carlton Palace Hotel",5,4.88,null,null,null,288,0,"USD",null,null,null,340,0,320,0,288,340,320],["Flora Creek Deluxe Hotel Apartments, Dubai",4,4.88,null,null,null,587,0,"USD",null,null,null,622,0,622,0,567,601,601],["Khalidia Palace Hotel Dubai by Mourouj Gloria",5,4.88,null,null,null,360,0,"USD",null,null,null,360,0,480,0,346,346,461],["Khalidia Palace Hotel Dubai by Mourouj Gloria",5,4.88,null,null,null,360,0,"USD",null,null,null,360,0,480,0,346,346,461],["GSS Palace Hotel",3,4.89,null,null,null,149,0,"USD",null,null,null,0,0,149,0,149,0,149],["SLS Dubai Hotel & Residences",5,4.89,null,null,null,1020,0,"USD",null,null,null,1110,0,1133,0,981,1067,1090],["Marriott Executive Apartments Dubai Creek",5,4.9,null,null,null,541,0,"USD",null,null,null,665,0,595,0,510,627,561],["Pullman Dubai Downtown",5,4.9,null,null,null,961,0,"USD",null,null,null,1011,0,1067,0,924,972,1026],["Landmark Plaza Hotel",3,4.91,null,null,null,267,0,"USD",null,null,null,339,0,267,0,267,339,267],["Moscow Hotel",4,4.92,null,null,null,319,0,"USD",null,null,null,319,0,319,0,319,319,319],["Lavender Hotel",3,4.92,null,null,null,208,0,"USD",null,null,null,0,0,208,0,208,0,208],["Florida Al Souq Hotel",2,4.92,null,null,null,270,0,"USD",null,null,null,270,0,0,0,247,259,0],["Copthorne Hotel Dubai",4,4.94,null,null,null,359,0,"USD",null,null,null,389,0,359,0,339,367,339],["The St. Regis Downtown Dubai",5,4.95,null,null,null,1551,0,"USD",null,null,null,1651,0,1551,0,1344,1344,1460],["Landmark Premier Hotel",3,4.96,null,null,null,266,0,"USD",null,null,null,296,0,296,0,266,296,296],["Phoenicia Hotel",2,4.97,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Mount Royal Hotel",2,4.98,null,null,null,223,0,"USD",null,null,null,0,0,0,0,216,0,0],["Comfort Inn Hotel",3,5.0,null,null,null,159,0,"USD",null,null,null,0,0,0,0,159,0,0],["Broadway Hotel",3,5.0,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["DAMAC Maison Cour Jardin",5,5.0,null,null,null,689,0,"USD",null,null,null,748,0,689,0,666,724,666],["Vendome Palace",3,5.01,null,null,null,196,0,"USD",null,null,null,209,0,196,0,188,200,188],["White Sand Hotel",1,5.02,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Somewhere Hotel Apartment",4.5,5.03,null,null,null,379,0,"USD",null,null,null,424,0,421,0,366,410,407],["Knight Armour Hotel",4,5.04,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Index Hotel",1,5.04,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Versailles by Vieras",4,5.05,null,null,null,401,0,"USD",null,null,null,401,0,401,0,401,401,401],["Montreal Naif Hotel",3,5.05,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Landmark Grand Hotel",4,5.06,null,null,null,694,0,"USD",null,null,null,755,0,771,0,668,727,743],["Lotus Grand Hotel",4,5.06,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["IntercityHotel Dubai Jaddaf Waterfront",3,5.07,null,null,null,374,0,"USD",null,null,null,399,0,374,0,374,399,374],["Royal Continental Suites",5,5.07,null,null,null,500,0,"USD",null,null,null,649,0,0,0,446,578,0],["Jood Palace Hotel Dubai",5,5.08,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["OYO 524 New Black Stone",4,5.08,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Aloft Dubai Creek",4,5.08,3.9,3.9,3.9,450,468,"USD",7.5,7.5,7.5,560,582,450,468,435,541,435],["City Avenue Al Reqqa Hotel",3,5.08,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Sun & Sands Downtown Dubai",3,5.09,null,null,null,316,0,"USD",null,null,null,370,0,0,0,316,370,0],["Radisson Blu Hotel Dubai Waterfront",5,5.09,null,null,null,767,0,"USD",null,null,null,853,0,794,0,635,705,657],["Sun and Sands Hotel",3,5.1,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Nihal Hotel",3,5.1,null,null,null,176,0,"USD",null,null,null,204,0,0,0,170,198,0],["Landmark Summit Hotel",4,5.1,null,null,null,387,0,"USD",null,null,null,471,0,430,0,346,420,384],["Al Sarab Hotel",3,5.1,null,null,null,202,0,"USD",null,null,null,247,0,0,0,196,239,0],["Golden Touch Hotel",0,5.1,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["The First Collection Waterfront, Dubai, a Tribute Portfolio Hotel",4,5.1,null,null,null,600,0,"USD",null,null,null,638,0,600,0,500,531,500],["Dream City Hotel Apartments LLC",3,5.11,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Orchid Hotel",3,5.13,null,null,null,235,0,"USD",null,null,null,0,0,0,0,230,0,0],["Millennium Lakeview Residences",5,5.13,null,null,null,473,0,"USD",null,null,null,518,0,525,0,449,492,499],["Kings Square Hotel",2,5.15,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Mark Inn Hotel Deira",1,5.15,null,null,null,235,0,"USD",null,null,null,280,0,235,0,228,237,228],["Naif Fort Hotel",2,5.15,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hyde Hotel Dubai",5,5.15,null,null,null,937,0,"USD",null,null,null,987,0,1041,0,811,854,901],["Concorde Deira Hotel",4,5.16,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["GSS Avenue Hotel Ex Delmon Hotel",4,5.17,null,null,null,358,0,"USD",null,null,null,0,0,358,0,358,0,358],["Kingsgate Al Jadaf by Millennium Hotels",3,5.17,null,null,null,236,0,"USD",null,null,null,284,0,262,0,228,274,253],["Panorama Deira Hotel",2,5.18,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Royalton Hotel",2,5.19,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Le Wana Hotel",3,5.19,null,null,null,186,0,"USD",null,null,null,200,0,189,0,177,190,180],["Ibis Styles Dubai Deira",3,5.2,null,null,null,344,0,"USD",null,null,null,389,0,373,0,334,378,362],["Excelsior Hotel Downtown",4,5.21,null,null,null,413,0,"USD",null,null,null,493,0,413,0,413,493,413],["Eureka Hotel",2,5.22,null,null,null,170,0,"USD",null,null,null,0,0,170,0,152,0,152],["Signature Inn Hotel",3,5.22,null,null,null,308,0,"USD",null,null,null,0,0,308,0,308,0,308],["Sadaf Hotel",3,5.23,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Saffron Hotel",2,5.25,null,null,null,218,0,"USD",null,null,null,0,0,0,0,189,0,0],["Al Sabkha Hotel",1,5.25,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Click Square Hotel",2,5.25,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["INK Hotel",4,5.25,null,null,null,301,0,"USD",null,null,null,308,0,331,0,292,297,321],["Aavri Hotel",4,5.26,null,null,null,294,0,"USD",null,null,null,338,0,327,0,279,320,310],["City Seasons Suites",4,5.27,null,null,null,294,0,"USD",null,null,null,383,0,327,0,285,372,317],["Renaissance Business Bay Hotel, Dubai",5,5.27,null,null,null,849,0,"USD",null,null,null,849,0,1036,0,800,800,976],["ibis Dubai Al Rigga",3,5.28,null,null,null,273,0,"USD",null,null,null,318,0,303,0,267,309,294],["Royal Garden Hotel",2,5.28,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Grand Kingsgate Jaddaf Waterfront Hotel by Millennium",4,5.28,null,null,null,303,0,"USD",null,null,null,324,0,478,0,251,268,478],["Pullman Dubai Creek City Centre Residences",5,5.29,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hyatt Place Wasl District Residences",4,5.29,null,null,null,413,0,"USD",null,null,null,508,0,413,0,363,447,363],["Kingsgate Canal Hotel",3,5.29,null,null,null,227,0,"USD",null,null,null,281,0,255,0,219,264,244],["ibis Deira Creekside Dubai",3,5.3,null,null,null,317,0,"USD",null,null,null,362,0,334,0,308,351,324],["Novotel Deira Creekside Dubai",4,5.3,null,null,null,450,0,"USD",null,null,null,500,0,510,0,436,481,484],["Pullman Dubai Creek City Centre Hotel & Residences",5,5.3,null,null,null,653,0,"USD",null,null,null,706,0,725,0,627,678,696],["Swiss\u00f4tel Living Al Ghurair Dubai",5,5.31,null,null,null,587,0,"USD",null,null,null,637,0,603,0,564,612,603],["Monaco Hotel",4,5.31,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Howard Johnson Plaza By Wyndham Dubai Deira",4,5.32,null,null,null,318,0,"USD",null,null,null,409,0,318,0,271,396,271],["Grand Mercure Business Bay",4,5.32,null,null,null,455,0,"USD",null,null,null,500,0,455,0,386,407,386],["New California Hotel",3,5.34,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["City Stay Premium Hotel Apartments",3,5.34,null,null,null,289,0,"USD",null,null,null,325,0,318,0,289,325,318],["Anantara Downtown Dubai Hotel",5,5.35,-1.0,-1.0,-1.0,1169,1158,"USD",4.1,4.1,4.1,1254,1242,1169,1158,1113,1194,1113],["Landmark Hotel Riqqa",4,5.37,null,null,null,228,0,"USD",null,null,null,480,0,549,0,228,432,549],["Holiday Inn Dubai Business Bay by IHG",4,5.37,null,null,null,651,0,"USD",null,null,null,651,0,709,0,627,627,682],["Staybridge Suites Dubai Business Bay by IHG",4,5.37,null,null,null,843,0,"USD",null,null,null,843,0,890,0,843,843,890],["OYO 332 Syaj Hotel",1,5.38,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hilton Garden Inn Dubai Business Bay",4,5.39,null,null,null,621,0,"USD",null,null,null,668,0,722,0,605,668,692],["Africana Hotel",1,5.4,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Avenue Hotel",4,5.41,null,null,null,270,0,"USD",null,null,null,270,0,307,0,259,259,290],["Palazzo Versace Dubai",4,5.41,null,null,null,1253,0,"USD",null,null,null,1360,0,1253,0,1080,1168,1080],["Rove City Centre, Deira",3,5.41,null,null,null,379,0,"USD",null,null,null,434,0,379,0,365,417,365],["Embassy Suites By Hilton Dubai Business Bay",5,5.41,null,null,null,1093,0,"USD",null,null,null,1093,0,1259,0,1093,1093,1187],["Mercure Dubai Deira",3,5.43,null,null,null,332,0,"USD",null,null,null,382,0,350,0,319,367,336],["Hyatt Place Dubai Wasl District",4,5.44,null,null,null,520,0,"USD",null,null,null,520,0,520,0,450,450,450],["West Hotel",1,5.46,null,null,null,264,0,"USD",null,null,null,0,0,264,0,255,0,255],["Courtyard by Marriott Culture Village, Dubai",4,5.46,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Majestic Cove Hotel",4,5.47,null,null,null,333,0,"USD",null,null,null,386,0,513,0,297,345,439],["The Leela Hotel Deira",4,5.47,null,null,null,397,0,"USD",null,null,null,466,0,0,0,385,453,0],["Park Regis Business Bay Hotel",4,5.47,null,null,null,578,0,"USD",null,null,null,622,0,599,0,559,602,579],["Oriental Corner Hotel Apartments",2,5.47,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Zaineast Hotel",1,5.49,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Claridge Hotel",3,5.5,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["The Creekside Hotel Dubai an Accor Hotel",5,5.5,null,null,null,542,0,"USD",null,null,null,584,0,638,0,460,495,541],["Kings Park Hotel",3,5.5,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Royal Continental Hotel \u2013 Dubai Airport",4,5.51,null,null,null,322,0,"USD",null,null,null,367,0,0,0,311,355,0],["InterContinental Residences Dubai Business Bay, an IHG Hotel",5,5.51,null,null,null,1176,0,"USD",null,null,null,1257,0,1306,0,1103,1179,1225],["Holiday Inn Express Dubai Safa Park by IHG",3,5.52,null,null,null,413,0,"USD",null,null,null,413,0,476,0,379,379,437],["ME Dubai by Meli\u00e1",5,5.53,null,null,null,1521,0,"USD",null,null,null,1589,0,1901,0,1454,1532,1454],["Hyatt Place Dubai Al Rigga",4,5.54,null,null,null,540,0,"USD",null,null,null,540,0,540,0,469,469,469],["Grand Central Hotel",4,5.54,null,null,null,364,0,"USD",null,null,null,402,0,383,0,352,389,370],["Hyatt Place Dubai Al Rigga Residences",3.5,5.54,null,null,null,423,0,"USD",null,null,null,514,0,423,0,403,489,403],["The Park Hotel",4,5.58,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Citymax Hotel Business Bay",4,5.58,null,null,null,353,0,"USD",null,null,null,459,0,400,0,339,441,384],["Gulf Inn Hotel Deira Formerly City Star Hotel",3,5.58,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["J5 Hotels - Port Saeed",4,5.59,null,null,null,259,0,"USD",null,null,null,285,0,0,0,250,276,0],["Bvlgari Resort Dubai",5,5.59,7.4,7.4,7.4,6504,6987,"USD",10.6,10.6,10.6,6504,6987,6504,6987,6318,6318,6318],["Swissotel Al Ghurair",5,5.63,null,null,null,566,0,"USD",null,null,null,616,0,582,0,520,569,582],["Coral Dubai Deira Hotel",4,5.64,null,null,null,240,0,"USD",null,null,null,266,0,0,0,214,237,318],["JW Marriott Marquis Hotel Dubai",5,5.64,null,null,null,1059,0,"USD",null,null,null,1134,0,1151,0,1038,1102,1081],["Four Seasons Resort Dubai at Jumeirah Beach",5,5.67,null,null,null,4678,0,"USD",null,null,null,0,0,4678,0,4410,0,4410],["Royal Falcon Hotel",3,5.69,null,null,null,234,0,"USD",null,null,null,265,0,270,0,234,265,240],["Grand Millennium Business Bay",4,5.69,null,null,null,446,0,"USD",null,null,null,495,0,462,0,358,396,408],["DoubleTree by Hilton Dubai Port Saeed",4,5.7,null,null,null,304,0,"USD",null,null,null,406,0,366,0,304,406,366],["Barcel\u00f3 Business Bay Dubai",4,5.71,-1.8,-1.8,-16.5,588,577,"USD",22.8,22.8,4.4,640,629,692,577,470,512,553],["Canal Central Hotel Business Bay",5,5.74,null,null,null,755,0,"USD",null,null,null,779,0,755,0,652,673,652],["Unlock Metropolis",4,5.74,null,null,null,521,0,"USD",null,null,null,0,0,0,0,507,0,0],["Royal Tulip Hotel, Dubai",3,5.76,null,null,null,185,0,"USD",null,null,null,214,0,0,0,179,208,0],["Al Khoory Sky Garden Hotel",0,5.76,null,null,null,340,0,"USD",null,null,null,406,0,377,0,302,361,335],["Ramada by Wyndham Dubai Deira",4,5.78,null,null,null,435,0,"USD",null,null,null,476,0,484,0,422,461,422],["Fortune Hotel Deira",3,5.8,null,null,null,162,0,"USD",null,null,null,203,0,180,0,155,194,173],["Grand Continent Hotel, Neif-Deira Dubai",3,5.81,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hyatt Regency Dubai",5,5.84,null,null,null,650,0,"USD",null,null,null,748,0,650,0,641,652,641],["Star Metro Deira Hotel Apartments",4,5.84,null,null,null,347,0,"USD",null,null,null,432,0,386,0,315,432,349],["Hilton Garden Inn Dubai Deira",4,5.84,null,null,null,318,0,"USD",null,null,null,346,0,370,0,306,334,359],["Hyatt Regency Dubai and Galleria",5,5.86,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hyatt Regency Galleria Residence Dubai",5,5.89,null,null,null,765,0,"USD",null,null,null,833,0,765,0,722,785,722],["ABJAD CROWN HOTEL",3,5.91,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Asiana Hotel Dubai",5,5.91,null,null,null,388,0,"USD",null,null,null,469,0,431,0,388,469,431],["Hilton Dubai Al Habtoor City",5,5.91,null,null,null,929,0,"USD",null,null,null,977,0,1082,0,901,947,1049],["Millennium Atria Business Bay",4,5.91,null,null,null,589,0,"USD",null,null,null,639,0,625,0,557,604,591],["Asiana Grand Hotel",5,5.91,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Marco Polo Hotel",4,5.94,null,null,null,255,0,"USD",null,null,null,309,0,268,0,245,297,258],["Al Muraqabat Plaza Hotel Apartments",3,5.95,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Copthorne Airport Hotel Dubai",4,5.95,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["InterContinental Residence Suites Dubai Festival City by IHG",4.5,5.96,null,null,null,922,0,"USD",null,null,null,974,0,973,0,871,920,920],["Palette San Marino Hotel",3,5.96,null,null,null,133,0,"USD",null,null,null,0,0,133,0,125,0,125],["Fortune Grand Hotel",4,5.96,null,null,null,295,0,"USD",null,null,null,0,0,0,0,282,0,0],["The First Collection Dubai Business Bay",4,5.96,null,null,null,704,0,"USD",null,null,null,780,0,704,0,613,660,613],["Asfar Hotel Apartments Dubai",4,5.97,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["V Hotel Dubai Curio Collection by Hilton",5,5.98,null,null,null,687,0,"USD",null,null,null,735,0,799,0,667,713,766],["Address Creek Harbour",5,6.01,3.0,3.0,3.0,926,954,"USD",7.2,7.2,7.2,1001,1031,926,954,889,961,889],["Damac Maison De Ville Breeze",4,6.02,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Millennium Airport Hotel Dubai",4,6.03,null,null,null,369,0,"USD",null,null,null,429,0,410,0,346,402,369],["Saffron Boutique Hotel",4,6.03,null,null,null,713,0,"USD",null,null,null,0,0,713,0,713,0,713],["Al Habtoor Palace - Preferred Hotels & Resorts",5,6.06,-0.4,-0.3,-0.4,1432,1427,"USD",3.8,3.8,3.8,1531,1526,1432,1427,1374,1469,1374],["Grand Mercure Dubai City",4,6.1,null,null,null,369,0,"USD",null,null,null,455,0,410,0,346,387,387],["Crowne Plaza Dubai Deira by IHG",5,6.11,null,null,null,389,0,"USD",null,null,null,464,0,476,0,365,437,448],["The Bristol Hotel Dubai",0,6.12,null,null,null,309,0,"USD",null,null,null,410,0,0,0,309,410,0],["Fortune Pearl Hotel, Deira",3,6.15,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Flora Inn Hotel Dubai Airport",4,6.15,null,null,null,433,0,"USD",null,null,null,463,0,465,0,420,450,451],["M\u00f6venpick Grand Al Bustan Dubai",5,6.16,null,null,null,432,0,"USD",null,null,null,502,0,432,0,361,419,361],["ibis Styles Dubai Airport Hotel",3,6.16,null,null,null,258,0,"USD",null,null,null,287,0,258,0,249,277,249],["Crowne Plaza Festival City by IHG",5,6.17,null,null,null,845,0,"USD",null,null,null,882,0,886,0,796,831,835],["Al Raya Hotel Apartment",3,6.29,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Royal Ascot Hotel Apartments",4,6.29,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Ramada Plaza by Wyndham Dubai Deira",4,6.31,null,null,null,257,0,"USD",null,null,null,362,0,257,0,249,351,249],["Avani Deira Dubai Hotel",5,6.35,4.0,4.0,4.0,386,402,"USD",12.7,9.4,8.0,438,456,386,402,356,417,372],["Element Dubai Airport",4,6.39,null,null,null,446,0,"USD",null,null,null,446,0,446,0,420,420,420],["Aloft Dubai Airport",4,6.39,7.4,7.4,7.4,341,367,"USD",10.5,10.5,10.5,409,440,341,367,332,398,332],["City Avenue Hotel",3,6.42,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["DAMAC Maison Aykon City\u00a0Dubai",4.5,6.47,null,null,null,502,0,"USD",null,null,null,565,0,502,0,485,547,485],["Le M\u00e9ridien Dubai Hotel & Conference Centre",5,6.49,null,null,null,616,0,"USD",null,null,null,676,0,616,0,579,636,579],["Grand Excelsior Hotel Deira",4,6.51,null,null,null,198,0,"USD",null,null,null,235,0,0,0,186,224,0],["Hues Boutique Hotel",4,6.53,null,null,null,247,0,"USD",null,null,null,312,0,0,0,247,302,0],["Palace Dubai Creek Harbour",5,6.55,null,null,null,938,0,"USD",null,null,null,1006,0,938,0,919,986,919],["InterContinental Dubai Festival City by IHG",5,6.67,null,null,null,1478,0,"USD",null,null,null,1478,0,1478,0,1432,1432,1432],["Raha Grand Hotel",3,6.68,null,null,null,261,0,"USD",null,null,null,354,0,291,0,254,343,282],["Vida Creek Beach Hotel",4,6.84,null,null,null,1113,0,"USD",null,null,null,1172,0,1113,0,1069,1126,1069],["BOONMAX HOTEL L.L.C",4,7.07,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Click City Hotel Deira",1,7.07,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["M\u00f6venpick Hotel Apartments Downtown Dubai",0,7.09,null,null,null,946,0,"USD",null,null,null,1015,0,1047,0,908,975,1006],["Holiday Inn & Suites Dubai Festival City by IHG",4,7.16,null,null,null,609,0,"USD",null,null,null,644,0,638,0,573,606,600],["Premier Inn Dubai International Airport",3,7.31,null,null,null,256,0,"USD",null,null,null,302,0,256,0,257,304,257],["Holiday Inn Express Dubai Airport by IHG",3,7.38,null,null,null,299,0,"USD",null,null,null,299,0,391,0,281,281,367],["Abjad Grand Hotel",4,8.07,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Roda Beach Resort",3,8.12,null,null,null,1019,0,"USD",null,null,null,1067,0,1019,0,1019,1067,1019],["The Meydan Hotel",5,8.17,null,null,null,926,0,"USD",null,null,null,926,0,926,0,892,892,892],["Centara Mirage Beach Resort Dubai",4,8.19,null,null,null,1361,0,"USD",null,null,null,1361,0,1644,0,1305,1305,1640],["RAF Hotel Apartment",4,8.22,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hotel Riu Dubai Beach Resort - All Inclusive",4,8.22,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Studio M Arabian Plaza Hotel & Hotel Apartments",3,8.24,null,null,null,325,0,"USD",null,null,null,350,0,332,0,299,321,309],["RAF Hotel Apartment",4.5,8.25,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Dubai International Hotel, Dubai Airport",5,8.26,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Al Khoory Courtyard Hotel",4,8.31,2.4,-7.4,-7.4,346,354,"USD",14.2,3.2,3.2,383,354,383,354,310,343,343],["URBAN Al Khoory Hotel",3,8.34,null,null,null,276,0,"USD",null,null,null,300,0,307,0,256,265,271],["Vida Creek Harbour",4,8.54,null,null,null,613,0,"USD",null,null,null,656,0,613,0,589,630,589],["Al Manar Hotel Apartments",4,8.58,null,null,null,247,0,"USD",null,null,null,290,0,0,0,241,284,0],["U.A.E Youth Hostel Association",2,9.38,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Movenpick Hotel Apartments Al Mamzar Dubai",5,9.54,null,null,null,298,0,"USD",null,null,null,395,0,350,0,290,374,331],["Al Bustan Residence Hotel Apartments",4,9.58,null,null,null,437,0,"USD",null,null,null,437,0,446,0,365,365,394],["Seven Seas Hotel",4,9.59,null,null,null,191,0,"USD",null,null,null,229,0,0,0,160,192,0],["Fortune Classic Hotel Apartments",3.5,10.21,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Fortune Plaza Hotel",3,10.28,null,null,null,311,0,"USD",null,null,null,342,0,0,0,311,342,0],["Lavender Hotel Al Nahda Dubai",4,10.28,null,null,null,268,0,"USD",null,null,null,373,0,0,0,260,362,0],["TIME Grand Plaza Hotel, Dubai Airport",4,10.4,null,null,null,292,0,"USD",null,null,null,337,0,325,0,292,337,325],["Hampton by Hilton Dubai Airport",3,10.51,null,null,null,295,0,"USD",null,null,null,295,0,327,0,285,285,315],["Dubai Grand Hotel by Fortune",4,10.65,null,null,null,272,0,"USD",null,null,null,335,0,302,0,261,321,290],["Al Hayat Hotel Suites",4,11.4,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Golden Sands Hotel & Residences",4,11.51,null,null,null,239,0,"USD",null,null,null,328,0,239,0,221,291,221],["Al Azmi Hotel",0,11.8,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Anantara World Islands Dubai Resort",5,12.35,33.8,33.8,-2.8,1702,2277,"USD",48.5,48.5,3.3,1702,2277,2342,2277,1534,1534,2203],["eStay Hotel",3,12.8,null,null,null,237,0,"USD",null,null,null,281,0,282,0,234,281,266],["voco Monaco Dubai Heart of Europe by IHG",5,12.9,null,null,null,330,0,"USD",null,null,null,417,0,375,0,311,394,354],["Metropolitan Hotel Dubai",4,13.0,null,null,null,559,0,"USD",null,null,null,745,0,621,0,542,723,603],["Lemon Tree Hotel Jumeirah Dubai",3.5,13.13,null,null,null,491,0,"USD",null,null,null,528,0,491,0,456,491,456],["TIME Onyx Hotel Apartment",4,13.33,null,null,null,570,0,"USD",null,null,null,603,0,570,0,548,580,548],["Dunes Hotel Apartments, Al Qusais",3,13.35,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Jumeirah Residences Marsa Al Arab",5,13.52,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Jumeirah Beach Hotel Dubai",5,13.76,null,null,null,4502,0,"USD",null,null,null,4603,0,0,0,4333,4430,0],["Jumeirah Burj Al Arab",5,14.16,null,null,null,8305,0,"USD",null,null,null,8305,0,8323,0,8000,8000,8323],["Premier Inn Dubai Dragon Mart Hotel",3,14.24,null,null,null,288,0,"USD",null,null,null,325,0,288,0,288,325,288],["Jumeirah Al Naseem Dubai",5,14.42,null,null,null,5418,0,"USD",null,null,null,5503,0,0,0,5201,5283,0],["Jumeirah Mina Al Salam",5,14.56,null,null,null,4716,0,"USD",null,null,null,4801,0,0,0,4528,4609,0],["ibis Styles Dragon Mart Dubai",3,14.56,null,null,null,239,0,"USD",null,null,null,269,0,266,0,234,261,258],["Premier Inn Dubai Silicon Oasis",3,14.63,null,null,null,275,0,"USD",null,null,null,321,0,275,0,275,321,275],["Sheraton Mall of the Emirates Hotel, Dubai",5,14.9,null,null,null,933,0,"USD",null,null,null,1008,0,933,0,906,979,906],["Jumeirah Dar Al Masyaf Dubai",5,15.02,null,null,null,4448,0,"USD",null,null,null,4533,0,0,0,4274,4356,0],["Jumeirah Al Qasr Dubai",5,15.06,null,null,null,4395,0,"USD",null,null,null,4497,0,0,0,4223,4385,0],["TIME Topaz Hotel Apartments",3,15.15,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Citymax Hotel Al Barsha at the Mall",3,15.16,null,null,null,297,0,"USD",null,null,null,377,0,337,0,285,362,323],["Kempinski Hotel Mall of the Emirates, Dubai",5,15.18,null,null,null,1418,0,"USD",null,null,null,1509,0,1556,0,1418,1509,1556],["La villa Najd Hotel Apartments",3,15.18,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Avari Al-Barsha Hotel Apartments",4,15.28,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Radisson Red Dubai Silicon Oasis",4,15.3,null,null,null,472,0,"USD",null,null,null,532,0,555,0,400,451,470],["City Stay Prime Hotel Apartment",3.5,15.32,null,null,null,336,0,"USD",null,null,null,0,0,381,0,326,0,381],["Rose Plaza Hotel Al Barsha",3,15.32,null,null,null,364,0,"USD",null,null,null,423,0,364,0,352,409,352],["Icon Delux Hotel Apartments Al Barsha",4,15.35,null,null,null,375,0,"USD",null,null,null,835,0,395,0,368,761,387],["Citymax Hotel Al Barsha",3,15.35,null,null,null,318,0,"USD",null,null,null,389,0,360,0,305,374,345],["The Soho Hotel",3,15.36,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Ivory Grand Hotel Apartments",3,15.38,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["DoubleTree by Hilton Hotel & Residences Dubai Al Barsha",4,15.39,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Flora Al Barsha Hotel at the Mall",4,15.42,null,null,null,514,0,"USD",null,null,null,542,0,535,0,497,524,517],["MENA Plaza Hotel Albarsha",4,15.46,null,null,null,304,0,"USD",null,null,null,342,0,0,0,294,332,0],["Auris Boutique Hotel Apartments, Al Barsha - At The Mall",4.5,15.47,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["TIME Dunes Hotel Apartments Al Barsha",3,15.48,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Signature Hotel Al Barsha",4,15.51,null,null,null,390,0,"USD",null,null,null,442,0,433,0,379,430,421],["Novotel Suites Mall Avenue Dubai",3,15.52,null,null,null,353,0,"USD",null,null,null,398,0,415,0,339,382,399],["Elite Byblos Hotel",5,15.52,null,null,null,360,0,"USD",null,null,null,400,0,365,0,322,357,350],["MENA ApartHotel Albarsha At The Mall",5,15.52,null,null,null,393,0,"USD",null,null,null,0,0,437,0,381,0,423],["Grand Excelsior Hotel Al Barsha",4,15.54,null,null,null,347,0,"USD",null,null,null,367,0,347,0,333,352,333],["Hilton Garden Inn Dubai, Mall Avenue",4,15.54,null,null,null,525,0,"USD",null,null,null,568,0,611,0,502,543,588],["ibis Mall Avenue Dubai",3,15.56,null,null,null,296,0,"USD",null,null,null,341,0,329,0,289,331,319],["Al Waleed Palace Hotel Apartments-Al Barsha",3,15.58,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Courtyard by Marriott Al Barsha, Dubai",4,15.61,null,null,null,519,0,"USD",null,null,null,555,0,519,0,490,555,490],["Holiday Inn DUBAI - AL BARSHA by IHG",4,15.68,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Millennium Al Barsha",4,15.69,null,null,null,419,0,"USD",null,null,null,459,0,439,0,395,433,414],["Travellers Hotel Apartment",2.5,15.7,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Donatello Hotel",4,15.73,null,null,null,340,0,"USD",null,null,null,340,0,0,0,329,329,0],["Grandeur Hotel",4,15.76,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["City Stay Residences",4,15.77,null,null,null,290,0,"USD",null,null,null,0,0,290,0,272,0,272],["City Stay Residences",4,15.77,null,null,null,264,0,"USD",null,null,null,0,0,290,0,247,0,272],["Montreal Barsha Hotel",4,15.79,null,null,null,473,0,"USD",null,null,null,558,0,473,0,473,558,473],["Centro Barsha",3,15.88,null,null,null,343,0,"USD",null,null,null,393,0,386,0,334,382,376],["Hampton by Hilton Dubai Al Barsha",3,15.89,null,null,null,403,0,"USD",null,null,null,403,0,455,0,402,402,417],["Rose Garden Hotel Apartments - Al Barsha, Near Metro Station",3.5,15.94,null,null,null,468,0,"USD",null,null,null,570,0,520,0,418,510,465],["Pride Hotel Apartments",3,15.96,null,null,null,383,0,"USD",null,null,null,0,0,383,0,383,0,383],["Asma Hotel",4,15.98,null,null,null,380,0,"USD",null,null,null,412,0,380,0,368,399,368],["Grand Cosmopolitan Hotel",5,15.99,null,null,null,815,0,"USD",null,null,null,1063,0,959,0,639,1063,752],["Al Khoory Atrium Hotel",4,16.0,3.0,1.7,-7.3,341,351,"USD",16.9,15.5,5.2,387,393,378,351,300,341,333],["Al Khoory Hotel Apartments",4.5,16.02,null,null,null,338,0,"USD",null,null,null,380,0,376,0,327,336,341],["Rose Park Hotel - Al Barsha, Opposite Metro Station",4,16.03,null,null,null,417,0,"USD",null,null,null,427,0,417,0,372,413,372],["MD Hotel By Gewan",4,16.06,null,null,null,409,0,"USD",null,null,null,416,0,416,0,362,369,369],["Icon Delux Hotel Apartments Al Barsha",0,16.07,null,null,null,375,0,"USD",null,null,null,835,0,395,0,368,761,387],["Radiance Premium Suites",4.5,16.08,null,null,null,404,0,"USD",null,null,null,0,0,449,0,367,0,435],["Cosmopolitan Hotel",4,16.18,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Golden Tulip Hotel Al- Barsha",4,16.21,null,null,null,286,0,"USD",null,null,null,327,0,0,0,252,288,0],["Novotel Dubai Al Barsha",4,16.3,null,null,null,369,0,"USD",null,null,null,414,0,434,0,351,394,413],["Adagio Premium Dubai Al Barsha",5,16.31,null,null,null,450,0,"USD",null,null,null,0,0,500,0,429,0,476],["ibis Al Barsha",3,16.98,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Meli\u00e1 Desert Palm Meli\u00e1 Collection",5,17.29,null,null,null,1208,0,"USD",null,null,null,1288,0,1510,0,1018,1084,1027],["La Suite Dubai Hotel & Apartments",4,17.33,null,null,null,331,0,"USD",null,null,null,415,0,331,0,329,413,329],["Waldorf Astoria Dubai Palm Jumeirah",5,17.35,null,null,null,2128,0,"USD",null,null,null,2204,0,2386,0,2096,2165,2096],["Anantara The Palm Dubai Resort",5,17.44,null,null,null,2161,0,"USD",null,null,null,2301,0,2701,0,2076,2211,2596],["Holiday Inn Hotel & Suites Dubai Science Park by IHG",4,17.44,null,null,null,399,0,"USD",null,null,null,455,0,469,0,375,428,442],["Vogo Grand Hotel Dubai",3,17.66,null,null,null,190,0,"USD",null,null,null,245,0,211,0,186,239,206],["Aloft Palm Jumeirah",4,17.69,19.4,19.4,7.4,789,942,"USD",26.6,19.4,10.5,825,985,877,942,744,825,853],["The Retreat Palm Dubai MGallery by Sofitel",5,17.7,null,null,null,1229,0,"USD",null,null,null,1243,0,1316,0,1195,1195,1316],["Royal Central Hotel and Resort \u2013 The Palm",5,17.72,null,null,null,1118,0,"USD",null,null,null,1150,0,1118,0,961,988,961],["C Central Resort the Palm",5,17.77,null,null,null,959,0,"USD",null,null,null,988,0,959,0,927,955,927],["Taj Exotica Resort & Spa, The Palm, Dubai",5,17.8,null,null,null,1798,0,"USD",null,null,null,1930,0,1900,0,1732,1859,1830],["Atana Hotel",4,17.85,null,null,null,325,0,"USD",null,null,null,410,0,325,0,312,394,312],["Grand Millennium Dubai",5,17.97,null,null,null,569,0,"USD",null,null,null,619,0,569,0,533,580,533],["Rixos The Palm Luxury Suite Collection",5,17.99,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Abidos Hotel Apartment, Dubailand",4,18.0,null,null,null,390,0,"USD",null,null,null,475,0,438,0,348,433,390],["Media Rotana",5,18.0,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Rixos The Palm Hotel & Suites",5,18.01,null,null,null,4920,0,"USD",null,null,null,4920,0,5788,0,4739,4739,5576],["Golden Tulip Media Hotel",4,18.05,null,null,null,411,0,"USD",null,null,null,512,0,411,0,390,441,390],["Grand Heights Dubai Hotel Apartments",4,18.13,null,null,null,455,0,"USD",null,null,null,514,0,455,0,436,492,436],["Ramee Rose Hotel",4,18.14,null,null,null,246,0,"USD",null,null,null,282,0,259,0,229,262,241],["The S Hotel Al Barsha",4,18.19,null,null,null,370,0,"USD",null,null,null,397,0,444,0,370,397,426],["Millennium Executive Apartments Mont Rose",4,18.2,null,null,null,315,0,"USD",null,null,null,355,0,359,0,299,337,341],["Home To Home Hotel Apartments",3,18.25,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Two Seasons Hotel & Apartments Former Gloria",4,18.26,null,null,null,471,0,"USD",null,null,null,577,0,496,0,404,495,425],["Mercure Dubai Barsha Heights Hotel Suites And Apartments",4,18.3,null,null,null,384,0,"USD",null,null,null,459,0,427,0,371,443,410],["Habtoor Polo Resort",5,18.33,-9.2,-9.2,-9.2,844,766,"USD",6.4,5.9,6.4,928,843,844,766,720,796,720],["Citadines Metro Central Dubai",4,18.43,null,null,null,358,0,"USD",null,null,null,468,0,358,0,344,440,344],["Holiday Inn Express Dubai, Internet City by IHG",3,18.46,null,null,null,417,0,"USD",null,null,null,417,0,463,0,393,393,436],["First Central Hotel Suites",4,18.47,null,null,null,372,0,"USD",null,null,null,389,0,372,0,324,339,324],["Naumi Hotel Dubai",4,18.48,null,null,null,504,0,"USD",null,null,null,584,0,504,0,378,520,449],["Sofitel Dubai The Palm Resort & Spa",5,18.49,null,null,null,2071,0,"USD",null,null,null,2155,0,2565,0,1602,1641,1984],["TRYP by Wyndham Dubai",4,18.49,null,null,null,352,0,"USD",null,null,null,404,0,352,0,342,392,342],["Social Hotel",4,18.58,null,null,null,252,0,"USD",null,null,null,322,0,280,0,252,322,280],["Ramada by Wyndham Dubai Barsha Heights",4,18.6,null,null,null,415,0,"USD",null,null,null,565,0,415,0,332,452,332],["Signature 1 Hotel Tecom",4,18.62,null,null,null,447,0,"USD",null,null,null,505,0,496,0,389,440,434],["Gulf Oasis Hotel Apartments Fz LLC",4,18.64,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["TIME Crystal Hotel Apartments",3,18.64,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Pyramisa Hotel Apartments",0,18.67,null,null,null,301,0,"USD",null,null,null,341,0,335,0,292,330,325],["Grand Belle Vue Hotel",4,18.7,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["TIME Oak Hotel & Suites",4,18.7,null,null,null,417,0,"USD",null,null,null,450,0,417,0,404,435,404],["Millennium Place Barsha Heights Hotel",4,18.85,null,null,null,333,0,"USD",null,null,null,383,0,333,0,285,327,285],["Millennium Place Barsha Heights Hotel Apartments",4,18.87,null,null,null,399,0,"USD",null,null,null,449,0,399,0,367,412,367],["Zabeel House The Greens by Jumeirah",4,18.95,null,null,null,916,0,"USD",null,null,null,916,0,950,0,882,882,916],["Grand Plaza M\u00f6venpick Media City",5,19.06,null,null,null,884,0,"USD",null,null,null,964,0,884,0,850,927,850],["Bab Al Qarya Hotel by AMA PRO",3,19.25,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Andaz Dubai The Palm by Hyatt",5,19.47,2.3,-10.9,-6.2,1546,1582,"USD",17.4,4.1,4.1,1776,1582,1686,1582,1347,1520,1520],["Avani+ Palm View Dubai Hotel & Suites",5,19.58,19.3,17.2,-3.3,847,1011,"USD",28.1,25.8,3.0,968,1134,1045,1011,789,901,982],["The St. Regis Dubai, The Palm",5,19.59,null,null,null,1800,0,"USD",null,null,null,1900,0,1800,0,1694,1788,1694],["FIVE Palm Jumeirah Dubai",5,19.69,null,null,null,1670,0,"USD",null,null,null,1681,0,0,0,1615,1626,0],["Andaz Family Suites by Hyatt - Palm Jumeirah",5,19.69,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hilton Dubai Palm Jumeirah",5,19.7,null,null,null,1560,0,"USD",null,null,null,1560,0,1646,0,1503,1503,1586],["Cheval Maison - The Palm Dubai",5,19.72,null,null,null,1521,0,"USD",null,null,null,1521,0,1690,0,1369,1369,1521],["Marriott Resort Palm Jumeirah, Dubai",5,19.73,null,null,null,1544,0,"USD",null,null,null,1544,0,1544,0,1374,1374,1457],["Adagio Premium The Palm",5,19.76,27.4,8.0,6.3,959,1222,"USD",30.8,10.9,9.2,1149,1242,1149,1222,934,1119,1119],["NH Collection Dubai The Palm",4,19.79,null,null,null,1423,0,"USD",null,null,null,1577,0,1423,0,1398,1550,1398],["Fairmont The Palm",5,19.81,null,null,null,1649,0,"USD",null,null,null,1816,0,1649,0,1591,1745,1591],["Radisson Beach Resort Palm Jumeirah",0,19.84,null,null,null,1271,0,"USD",null,null,null,1352,0,1495,0,1017,1082,1196],["voco Dubai the Palm by IHG",4,19.86,null,null,null,1287,0,"USD",null,null,null,1355,0,1355,0,1278,1278,1395],["Dukes The Palm Dubai Hotel",5,19.87,null,null,null,1163,0,"USD",null,null,null,1313,0,1163,0,1127,1272,1127],["One&Only Royal Mirage The Residence",5,19.88,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Arjaan by Rotana Dubai Media City",4,20.02,null,null,null,555,0,"USD",null,null,null,605,0,625,0,540,588,607],["HE Hotel Apartments by Gewan",5,20.05,null,null,null,342,0,"USD",null,null,null,0,0,386,0,332,0,375],["Radisson Blu Hotel, Dubai Media City",4,20.07,null,null,null,855,0,"USD",null,null,null,915,0,950,0,677,725,753],["Atlantis, The Palm",5,20.26,1.9,1.9,1.9,3818,3889,"USD",5.7,5.7,5.7,3818,3889,3818,3889,3678,3678,3678],["One&Only Royal Mirage",5,20.3,null,null,null,3572,0,"USD",null,null,null,3572,0,3572,0,3432,3432,3432],["Media One Hotel Dubai",4,20.52,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["The Westin Dubai Mina Seyahi Beach Resort & Marina",5,20.63,null,null,null,2634,0,"USD",null,null,null,2704,0,2634,0,2559,2704,2559],["Park Inn by Radisson Dubai Motor City",4,20.66,null,null,null,341,0,"USD",null,null,null,389,0,398,0,277,315,322],["Tamani Marina Hotel and Hotel Apartments",4.5,20.71,null,null,null,268,0,"USD",null,null,null,729,0,298,0,257,729,286],["Le M\u00e9ridien Mina Seyahi Beach Resort & Waterpark",5,20.77,null,null,null,2267,0,"USD",null,null,null,2337,0,2267,0,2202,2270,2202],["W Dubai - Mina Seyahi",5,20.84,null,null,null,1615,0,"USD",null,null,null,1970,0,1615,0,1602,1954,1602],["Atlantis The Royal",5,20.95,8.7,8.7,8.7,5720,6220,"USD",8.7,8.7,8.7,5720,6220,5720,6220,5720,5720,5720],["Holiday Inn Dubai Village Circle by IHG",3,20.99,null,null,null,315,0,"USD",null,null,null,362,0,315,0,292,329,301],["Studio One Hotel",4,21.03,null,null,null,462,0,"USD",null,null,null,506,0,462,0,308,337,308],["FIVE Jumeirah Village",5,21.04,null,null,null,907,0,"USD",null,null,null,907,0,967,0,877,877,954],["The First Collection Dubai Jumeirah Village Circle, a Tribute Portfolio Hotel",4,21.07,null,null,null,500,0,"USD",null,null,null,535,0,513,0,416,444,434],["Hotel Local Dubai, Jumeirah Village Triangle, Autograph Collection",4,21.16,null,null,null,423,0,"USD",null,null,null,513,0,423,0,359,444,359],["Vida Emirates Hills",4,21.18,null,null,null,799,0,"USD",null,null,null,858,0,799,0,768,825,768],["Jumeirah Living Marina Gate Dubai",5,21.18,null,null,null,1337,0,"USD",null,null,null,1392,0,1487,0,1287,1340,1428],["Dubai Marriott Harbour Hotel & Suites",4,21.19,null,null,null,1861,0,"USD",null,null,null,2128,0,2068,0,1759,2011,1955],["One&Only The Palm",5,21.26,null,null,null,6650,0,"USD",null,null,null,6650,0,7389,0,4988,4988,5542],["Taj Jumeirah Lakes Towers",5,21.28,null,null,null,907,0,"USD",null,null,null,952,0,907,0,841,882,841],["Grosvenor House, a Luxury Collection Hotel, Dubai",5,21.5,null,null,null,1701,0,"USD",null,null,null,1701,0,1701,0,1605,1605,1605],["Pullman Dubai Jumeirah Lakes Towers - Hotel and Residence",5,21.6,null,null,null,550,0,"USD",null,null,null,594,0,650,0,530,571,626],["Al Habtoor Grand Resort, Autograph Collection\u00ae",5,21.66,7.4,7.4,7.4,1451,1559,"USD",40.2,13.9,10.6,1507,1619,1451,1559,1112,1422,1410],["Dusit Princess Residences - Dubai Marina",4,21.7,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Marina Hotel Apartments",5,21.72,null,null,null,624,0,"USD",null,null,null,0,0,669,0,604,0,647],["Th8 Palm Dubai Beach Resort Vignette Collection",5,21.73,null,null,null,1637,0,"USD",null,null,null,1685,0,1836,0,1471,1515,1650],["Treppan Hotel & Suites by Fakhruddin",4.5,21.76,null,null,null,306,0,"USD",null,null,null,341,0,341,0,269,299,299],["Barcelo Residences Dubai Marina",5,21.78,22.5,22.6,4.2,649,795,"USD",27.5,27.5,8.4,699,856,763,795,623,671,733],["Oaks Liwa Heights Suites",4,21.79,null,null,null,560,0,"USD",null,null,null,0,0,560,0,540,0,709],["Le Royal Meridien Beach Resort And Spa",5,21.84,null,null,null,2701,0,"USD",null,null,null,2701,0,2701,0,2554,2554,2554],["Jumeirah Zabeel Saray Dubai",5,21.97,null,null,null,2198,0,"USD",null,null,null,2278,0,2313,0,2115,2192,2226],["La Verda Suites & Villas Dubai Marina",5,22.01,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Izzzi Life Mint- Apart Hotel",0,22.01,null,null,null,314,0,"USD",null,null,null,0,0,314,0,257,0,257],["Sunday Marina View Hotel Apartments",5,22.02,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["City Premi\u00e8re Marina Hotel Apartments",5,22.08,null,null,null,750,0,"USD",null,null,null,895,0,882,0,727,895,882],["Emirates Sports Hotel",4,22.11,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Radisson Blu Residence, Dubai Marina",4,22.17,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["The Ritz-Carlton, Dubai",5,22.19,null,null,null,3669,0,"USD",null,null,null,3769,0,3669,0,3471,3636,3471],["Raffles The Palm",5,22.2,null,null,null,2778,0,"USD",null,null,null,2858,0,3268,0,2437,2507,2867],["Wyndham Residences The Palm",5,22.25,null,null,null,1812,0,"USD",null,null,null,2189,0,1812,0,1522,2083,1522],["Armada Avenue Hotel",4,22.32,null,null,null,351,0,"USD",null,null,null,430,0,371,0,337,390,356],["Regency Luxury Suites",3,22.32,null,null,null,680,0,"USD",null,null,null,759,0,756,0,650,725,723],["W Dubai - The Palm",5,22.37,null,null,null,2084,0,"USD",null,null,null,2164,0,2278,0,2002,2079,2189],["M\u00f6venpick Hotel Jumeirah Beach",5,22.41,null,null,null,1052,0,"USD",null,null,null,1117,0,1107,0,1010,1073,1064],["JW Marriott Hotel Marina",5,22.41,null,null,null,1291,0,"USD",null,null,null,1372,0,1434,0,1264,1481,1393],["FIVE LUXE",5,22.42,null,null,null,1535,0,"USD",null,null,null,1535,0,1705,0,1472,1472,1636],["SUHA JBR Hotel Apartments",3,22.43,null,null,null,716,0,"USD",null,null,null,716,0,792,0,712,996,1043],["Blue Beach Tower",4.5,22.49,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["InterContinental Dubai Marina by IHG",5,22.5,null,null,null,1366,0,"USD",null,null,null,1496,0,1366,0,1289,1412,1289],["Rixos Premium Dubai JBR",5,22.51,null,null,null,2218,0,"USD",null,null,null,2298,0,2610,0,2131,2208,2218],["Crowne Plaza Dubai Marina by IHG",5,22.69,null,null,null,1151,0,"USD",null,null,null,1162,0,1278,0,1151,1162,1206],["GRAND MARINO HOTEL",3,22.71,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Hilton Dubai The Walk",4,22.72,null,null,null,1381,0,"USD",null,null,null,1446,0,1381,0,1367,1403,1367],["Sheraton The Walk, Dubai",4,22.75,null,null,null,1097,0,"USD",null,null,null,1215,0,1097,0,987,1093,987],["Hilton Dubai Jumeirah",5,22.77,null,null,null,1500,0,"USD",null,null,null,1500,0,1602,0,1454,1454,1585],["Nuran Marina Serviced Residences",4.5,22.88,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["voco Bonnington Dubai by IHG",5,23.03,null,null,null,817,0,"USD",null,null,null,885,0,908,0,788,833,788],["Aloft Me'aisam Dubai",4,23.07,null,null,null,300,0,"USD",null,null,null,335,0,334,0,273,305,304],["M\u00f6venpick Hotel Jumeirah Village Triangle",5,23.08,null,null,null,479,0,"USD",null,null,null,604,0,544,0,452,527,513],["Novotel Jumeirah Village Triangle",4,23.11,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Adagio Jumeirah Village Triangle",4,23.14,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Vida Dubai Marina & Yacht Club",4,23.14,null,null,null,955,0,"USD",null,null,null,1014,0,955,0,918,974,918],["Sofitel Dubai Jumeirah Beach",5,23.17,null,null,null,1779,0,"USD",null,null,null,1854,0,2013,0,1712,1784,1938],["Roda Amwaj Suites",3,23.21,null,null,null,810,0,"USD",null,null,null,916,0,900,0,777,879,863],["Element Me'aisam Dubai",4,23.21,null,null,null,323,0,"USD",null,null,null,323,0,359,0,304,304,337],["Millennium Place Marina",4,23.23,null,null,null,698,0,"USD",null,null,null,749,0,698,0,604,652,655],["Vintage Grand Hotel Dubai",5,23.3,null,null,null,398,0,"USD",null,null,null,465,0,398,0,376,439,376],["Marina Byblos Hotel",4,23.31,null,null,null,658,0,"USD",null,null,null,720,0,731,0,658,720,731],["Delano Dubai at Bluewaters",5,23.31,null,null,null,4803,0,"USD",null,null,null,4803,0,4803,0,4607,4607,4607],["Amwaj Rotana, Jumeirah Beach - Dubai",5,23.41,13.1,8.9,0.5,1412,1597,"USD",17.8,13.3,4.8,1467,1597,1589,1597,1356,1410,1524],["JA Ocean View Hotel, Jumeirah Beach Dubai",5,23.49,null,null,null,1521,0,"USD",null,null,null,1565,0,1521,0,1276,1973,1918],["Banyan Tree Dubai at Bluewaters",5,23.51,2.1,2.1,2.1,5843,5964,"USD",6.6,6.6,6.6,5843,5964,5843,5964,5595,5595,5595],["M\u00f6venpick Hotel Jumeirah Lakes Towers",5,23.54,null,null,null,650,0,"USD",null,null,null,690,0,764,0,625,663,735],["Delano Dubai",5,23.54,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Sheraton Jumeirah Beach Resort",5,23.56,null,null,null,1497,0,"USD",null,null,null,1558,0,1497,0,1456,1514,1456],["Jannah Place Dubai Marina",4,23.57,null,null,null,593,0,"USD",null,null,null,0,0,630,0,593,0,630],["Stella Di Mare Dubai Marina Hotel",5,23.57,null,null,null,669,0,"USD",null,null,null,687,0,820,0,615,653,615],["Ramada Hotel and Suites by Wyndham Dubai JBR",4,23.6,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Occidental IMPZ Dubai Conference & Events Centre",4,23.62,null,null,null,331,0,"USD",null,null,null,373,0,389,0,322,363,367],["Radisson Dubai Damac Hills",4,23.63,null,null,null,434,0,"USD",null,null,null,481,0,434,0,311,351,364],["DoubleTree by Hilton Dubai - Jumeirah Beach",4,23.72,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["The Apartments at Caesars Palace Dubai",5,23.72,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Signature Hotel Apartments & Spa",5,23.77,null,null,null,807,0,"USD",null,null,null,832,0,0,0,781,805,0],["Address Beach Resort",5,23.77,11.3,11.3,-7.3,3052,3396,"USD",28.7,28.7,7.2,3129,3482,3662,3396,2639,2706,3167],["SO/ Uptown Dubai",5,23.78,null,null,null,807,0,"USD",null,null,null,877,0,966,0,791,860,966],["Pearl Marina Hotel Apartments",3,23.84,null,null,null,747,0,"USD",null,null,null,796,0,765,0,670,714,686],["The First Collection Marina, Dubai, a Tribute Portfolio Hotel",4,23.91,null,null,null,763,0,"USD",null,null,null,800,0,763,0,662,662,662],["Rove Dubai Marina",3,23.91,null,null,null,506,0,"USD",null,null,null,580,0,506,0,487,558,487],["YouCo coliving Dubai",3,24.55,null,null,null,438,0,"USD",null,null,null,0,0,461,0,399,0,420],["ZiQoo Hotel Apartments",4,25.48,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Chelsea Gardens Hotel Apartments",5,25.53,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Parkside Hotel Apartment",4,25.69,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Premier Inn Dubai Ibn Battuta Mall",3,26.44,null,null,null,310,0,"USD",null,null,null,351,0,310,0,310,351,310],["Resivation Hotel",3,26.49,null,null,null,190,0,"USD",null,null,null,0,0,190,0,185,0,185],["Ecos Dubai Hotel at Al Furjan",3,26.81,null,null,null,242,0,"USD",null,null,null,275,0,269,0,233,264,259],["Avani Ibn Battuta Dubai Hotel",4,27.03,36.0,32.9,2.0,413,561,"USD",41.4,38.2,20.0,454,603,550,561,397,436,468],["Oaks Ibn Battuta Gate Dubai",5,27.1,null,null,null,459,0,"USD",null,null,null,549,0,459,0,403,483,403],["JA The Manor Hotel, Dubai",4,27.56,null,null,null,325,0,"USD",null,null,null,351,0,325,0,267,289,267],["Abar Hotel Apartments",4,27.64,null,null,null,278,0,"USD",null,null,null,0,0,0,0,267,0,0],["Delta Hotels by Marriott, Dubai Investment Park",3.5,27.73,null,null,null,325,0,"USD",null,null,null,380,0,325,0,306,358,306],["Premier Inn Dubai Investment Park",3,27.83,null,null,null,246,0,"USD",null,null,null,292,0,246,0,246,292,246],["Millennium Lakeview Hotel",4,27.93,null,null,null,359,0,"USD",null,null,null,409,0,359,0,324,369,324],["Fortune Park Hotel",4,28.13,null,null,null,237,0,"USD",null,null,null,305,0,264,0,228,293,253],["ALH Vacay - Family Villa in DAMAC Hills 2",3,29.2,null,null,null,252,0,"USD",null,null,null,297,0,267,0,250,295,265],["Terra Solis Dubai",5,29.48,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Peony Hotel",4,30.4,null,null,null,0,0,"USD",null,null,null,0,0,0,0,0,0,0],["Cheval Maison Expo City Dubai",5,32.82,null,null,null,845,0,"USD",null,null,null,845,0,845,0,845,845,845],["Rove Expo City",3,32.84,null,null,null,221,0,"USD",null,null,null,284,0,221,0,212,273,212],["Expo Village Serviced Apartments",3,32.87,null,null,null,353,0,"USD",null,null,null,0,0,353,0,353,0,353],["Join Inn Hotel Jebel Ali",1,33.76,null,null,null,158,0,"USD",null,null,null,0,0,158,0,158,0,158]];
+
+    let sortCol = 'd', sortDir = 'asc', filterMode = 'all', searchTerm = '', legendFilter = null;
+
+    function pcClass(v) {
+        if (v === null) return 'na';
+        if (v <= -5) return 'neg';
+        if (v >= -4.9 && v <= 4.9) return 'zero';
+        if (v <= 10) return 'low';
+        if (v <= 20) return 'mid';
+        return 'high';
+    }
+    function pcText(v, mc) {
+        if (v === null && mc > 0) return 'JNP NA';
+        if (v === null) return '-';
+        const sign = v > 0 ? '+' : '';
+        return sign + v.toFixed(1) + '%';
+    }
+    function stars(n) {
+        let h = '';
+        const full = Math.floor(n);
+        for (let i = 1; i <= 5; i++) h += '<span class="sp ' + (i <= full ? 'on' : 'off') + '"></span>';
+        return h;
+    }
+    function fmt(n) { return n ? n.toLocaleString('en-GB') : '-'; }
+    function distFmt(d) {
+        if (d < 1) return d.toFixed(2) + ' km';
+        if (d < 10) return d.toFixed(1) + ' km';
+        return Math.round(d) + ' km';
+    }
+    function getSortVal(h, col) {
+        switch(col) {
+            case 'n': return h[0].toLowerCase();
+            case 's': return h[1];
+            case 'd': return h[2];
+            case 'mc': return h[6] || 0;
+            case 'c': return h[3] !== null ? h[3] : 9999;
+            case 'b': return h[4] !== null ? h[4] : 9999;
+            case 'f': return h[5] !== null ? h[5] : 9999;
+            case 'pc': return h[9] !== null ? h[9] : 9999;
+            case 'pb': return h[10] !== null ? h[10] : 9999;
+            case 'pf': return h[11] !== null ? h[11] : 9999;
+            default: return h[2];
+        }
+    }
+    function passFilter(h) {
+        if (searchTerm && !h[0].toLowerCase().includes(searchTerm)) return false;
+        const hasJ = h[3] !== null || h[4] !== null || h[5] !== null;
+        switch(filterMode) {
+            case 'juniper': if (!hasJ) return false; break;
+            case 'market': if (hasJ || h[6] === 0) return false; break;
+            case 'none': if (h[6] !== 0 || hasJ) return false; break;
+            case 'green': if (!((h[3] !== null && h[3] <= -5) || (h[4] !== null && h[4] <= -5) || (h[5] !== null && h[5] <= -5))) return false; break;
+            case '5km': if (h[2] > 5) return false; break;
+        }
+        if (legendFilter) {
+            const allVals = [h[3], h[4], h[5], h[9], h[10], h[11]];
+            if (!allVals.some(v => pcClass(v) === legendFilter)) return false;
+        }
+        return true;
+    }
+
+    function render() {
+        const filtered = H.filter(passFilter);
+        const dir = sortDir === 'asc' ? 1 : -1;
+        filtered.sort((a, b) => {
+            const va = getSortVal(a, sortCol), vb = getSortVal(b, sortCol);
+            if (typeof va === 'string') return va.localeCompare(vb) * dir;
+            return (va - vb) * dir;
+        });
+        const tbody = document.getElementById('tbody');
+        const hasJ = h => h[3] !== null || h[4] !== null || h[5] !== null;
+        let out = '';
+        for (let i = 0; i < filtered.length; i++) {
+            const h = filtered[i], hj = hasJ(h);
+            out += '<tr data-i="' + H.indexOf(h) + '">' +
+                '<td class="rn">' + (i+1) + '</td>' +
+                '<td class="hn' + (hj ? ' has-juniper' : '') + '">' + h[0] + '</td>' +
+                '<td class="stars-cell">' + stars(h[1]) + '</td>' +
+                '<td class="dist">' + distFmt(h[2]) + '</td>' +
+                '<td class="mp">' + (h[6] > 0 ? '<span class="cur">' + h[8] + '</span> ' + fmt(h[6]) : '<span style="color:var(--pc-nr-fg)">-</span>') + '</td>' +
+                '<td><div class="pc ' + pcClass(h[3]) + '">' + pcText(h[3], h[6]) + '</div></td>' +
+                '<td><div class="pc ' + pcClass(h[4]) + '">' + pcText(h[4], h[6]) + '</div></td>' +
+                '<td><div class="pc ' + pcClass(h[5]) + '">' + pcText(h[5], h[6]) + '</div></td>' +
+                '<td class="priv-col div"><div class="pc ' + pcClass(h[9]) + '">' + pcText(h[9], h[6]) + '</div></td>' +
+                '<td class="priv-col"><div class="pc ' + pcClass(h[10]) + '">' + pcText(h[10], h[6]) + '</div></td>' +
+                '<td class="priv-col"><div class="pc ' + pcClass(h[11]) + '">' + pcText(h[11], h[6]) + '</div></td>' +
+                '</tr>';
+        }
+        tbody.innerHTML = out;
+        document.getElementById('count').innerHTML = '<span>' + filtered.length + '</span> hotels';
+        document.querySelectorAll('.data-table th[data-col]').forEach(th => {
+            const col = th.dataset.col;
+            th.classList.toggle('sorted', col === sortCol);
+            const arrow = th.querySelector('.sa');
+            if (arrow) arrow.textContent = col === sortCol ? (sortDir === 'asc' ? '▲' : '▼') : '↕';
+        });
+    }
+
+    /* Sort */
+    document.querySelectorAll('.data-table th[data-col]').forEach(th => {
+        th.addEventListener('click', () => {
+            const col = th.dataset.col;
+            if (sortCol === col) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+            else { sortCol = col; sortDir = 'asc'; }
+            render();
+        });
+    });
+    /* Filter buttons */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterMode = btn.dataset.f;
+            legendFilter = null;
+            document.querySelectorAll('.legend-chip').forEach(c => c.classList.remove('active'));
+            render();
+        });
+    });
+    /* Search */
+    document.getElementById('search').addEventListener('input', e => {
+        searchTerm = e.target.value.toLowerCase().trim();
+        render();
+    });
+    /* Legend chips */
+    document.querySelectorAll('.legend-chip[data-lf]').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const lf = chip.dataset.lf;
+            if (legendFilter === lf) { legendFilter = null; chip.classList.remove('active'); }
+            else { legendFilter = lf; document.querySelectorAll('.legend-chip').forEach(c => c.classList.remove('active')); chip.classList.add('active'); }
+            render();
+        });
+    });
+
+    /* ═══════ TOOLTIP ═══════ */
+    const tip = document.getElementById('tip');
+    let tipRow = null;
+    const tbodyEl = document.getElementById('tbody');
+    tbodyEl.addEventListener('mousemove', e => {
+        const tr = e.target.closest('tr');
+        if (!tr || !tr.dataset.i) { tip.classList.remove('show'); tipRow = null; return; }
+        const idx = parseInt(tr.dataset.i);
+        if (isNaN(idx)) { tip.classList.remove('show'); tipRow = null; return; }
+        if (tipRow !== tr) {
+            tipRow = tr;
+            const h = H[idx], hj = h[3]!==null||h[4]!==null||h[5]!==null;
+            const cur = h[8]||'USD', sym = cur==='USD'?'$':cur+' ';
+            const fp = v => v > 0 ? sym + fmt(v) : '-';
+            const fd = v => { if (v===null) return ['','']; const cls = v<=-5?'green':v>5?'red':(v>0?'amber':''); return [cls,(v>0?'+':'')+v.toFixed(1)+'%']; };
+            let t = '<div class="tip-name">'+h[0]+'</div><div class="tip-meta">'+h[1]+'\u2605 \u00B7 '+distFmt(h[2])+'</div>';
+            if (hj) {
+                t += '<div class="tip-heading cyan">vs Market Rates</div><div class="tip-grid">';
+                t += '<div class="tip-grid-hdr"></div><div class="tip-grid-hdr" style="text-align:right">Market</div><div class="tip-grid-hdr" style="text-align:right">Juniper</div><div class="tip-grid-hdr" style="text-align:right">Diff</div>';
+                var d=fd(h[3]); t+='<div class="tip-grid-label">Cheapest</div><div class="tip-grid-val">'+fp(h[6])+'</div><div class="tip-grid-val">'+fp(h[7])+'</div><div class="tip-grid-val '+d[0]+'">'+d[1]+'</div>';
+                d=fd(h[4]); t+='<div class="tip-grid-label">Breakfast</div><div class="tip-grid-val">'+fp(h[12])+'</div><div class="tip-grid-val">'+fp(h[13])+'</div><div class="tip-grid-val '+d[0]+'">'+d[1]+'</div>';
+                d=fd(h[5]); t+='<div class="tip-grid-label">Flexible</div><div class="tip-grid-val">'+fp(h[14])+'</div><div class="tip-grid-val">'+fp(h[15])+'</div><div class="tip-grid-val '+d[0]+'">'+d[1]+'</div>';
+                t += '</div>';
+                if (h[9]!==null||h[10]!==null||h[11]!==null) {
+                    t += '<div class="tip-heading purple">vs HM Private Rates</div><div class="tip-grid">';
+                    t += '<div class="tip-grid-hdr"></div><div class="tip-grid-hdr" style="text-align:right">HM Priv</div><div class="tip-grid-hdr" style="text-align:right">Juniper</div><div class="tip-grid-hdr" style="text-align:right">Diff</div>';
+                    d=fd(h[9]); t+='<div class="tip-grid-label">Cheapest</div><div class="tip-grid-val">'+fp(h[16])+'</div><div class="tip-grid-val">'+fp(h[7])+'</div><div class="tip-grid-val '+d[0]+'">'+d[1]+'</div>';
+                    d=fd(h[10]); t+='<div class="tip-grid-label">Breakfast</div><div class="tip-grid-val">'+fp(h[17])+'</div><div class="tip-grid-val">'+fp(h[13])+'</div><div class="tip-grid-val '+d[0]+'">'+d[1]+'</div>';
+                    d=fd(h[11]); t+='<div class="tip-grid-label">Flexible</div><div class="tip-grid-val">'+fp(h[18])+'</div><div class="tip-grid-val">'+fp(h[15])+'</div><div class="tip-grid-val '+d[0]+'">'+d[1]+'</div>';
+                    t += '</div>';
+                }
+            } else { if (h[6]>0) t+='<div class="tip-heading cyan">Market price (3 nights)</div><div class="tip-meta">'+sym+fmt(h[6])+'</div>'; }
+            tip.innerHTML = t;
+        }
+        tip.style.left = Math.min(e.clientX+16, window.innerWidth-440)+'px';
+        tip.style.top = (e.clientY-10)+'px';
+        tip.classList.add('show');
+    });
+    tbodyEl.addEventListener('mouseleave', () => { tip.classList.remove('show'); tipRow = null; });
+
+    /* ═══════ SCROLL PROGRESS ═══════ */
+    window.addEventListener('scroll', () => {
+        const s = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+        document.getElementById('progress').style.width = (h > 0 ? (s/h)*100 : 0) + '%';
+    });
+
+    /* ═══════ THEME TOGGLE ═══════ */
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel  = document.getElementById('themeLabel');
+    const themeIcon   = document.getElementById('themeIcon');
+    const metaTheme   = document.querySelector('meta[name="theme-color"]');
+
+    function setTheme(dark) {
+        if (dark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'OnePager';
+            themeIcon.textContent  = '☾';
+            metaTheme.content = '#0a0a0a';
+            startParticles();
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'Analyst';
+            themeIcon.textContent  = '☀';
+            metaTheme.content = '#f4f1eb';
+            stopParticles();
+        }
+    }
+    themeToggle.addEventListener('click', () => {
+        setTheme(!document.documentElement.hasAttribute('data-theme'));
+    });
+
+    /* ═══════ PARTICLES (dark mode only) ═══════ */
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [], animFrame = null;
+
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    function createParticles() {
+        particles = [];
+        const count = window.innerWidth <= 768 ? 40 : 100;
+        for (let i = 0; i < count; i++) {
+            const type = Math.random();
+            const c = type < 0.3 ? 'rgba(0,163,196,' : 'rgba(248,246,241,';
+            particles.push({ x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+0.5, sx:(Math.random()-0.5)*0.3, sy:(Math.random()-0.5)*0.3, o:Math.random()*0.5+0.1, c });
+        }
+    }
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.x += p.sx; p.y += p.sy;
+            if (p.x<0) p.x=canvas.width; if (p.x>canvas.width) p.x=0;
+            if (p.y<0) p.y=canvas.height; if (p.y>canvas.height) p.y=0;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+            ctx.fillStyle = p.c + p.o + ')'; ctx.fill();
+        });
+        animFrame = requestAnimationFrame(animate);
+    }
+    function startParticles() {
+        if (animFrame) return;
+        resizeCanvas(); createParticles();
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) animate();
+    }
+    function stopParticles() {
+        if (animFrame) { cancelAnimationFrame(animFrame); animFrame = null; }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        if (document.documentElement.hasAttribute('data-theme')) createParticles();
+    });
+
+    /* ═══════ INIT ═══════ */
+    resizeCanvas();
+    setTheme(false);
+    render();
+    </script>
+</body>
+</html>
