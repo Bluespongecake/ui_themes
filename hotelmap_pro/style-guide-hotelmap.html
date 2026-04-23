@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Guide — Gulf Print & Pack 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink-black: #ffffff;
+      --dark-grey: #ffffff;
+      --mid-dark: #f5f5f5;
+      --newsprint: #111111;
+      --newsprint-dim: rgba(17,17,17,0.72);
+      --cyan-accent: #1ea5e3;
+      --cyan-bright: #0d8fc7;
+      --text-grey: #666666;
+      --rule-grey: #e0e0e0;
+      --leaked-red: #e53935;
+      --positive: #2e7d32;
+      --negative: #c62828;
+      --purple-accent: #f5c518;
+      --col-hm: #1ea5e3;
+      --col-agency: #f5c518;
+      --col-duplo: #ff8f00;
+      --col-links: #e53935;
+      --col-none: #aaaaaa;
+      --card-shadow: 0 1px 2px rgba(30,165,227,0.07), 0 2px 8px rgba(30,165,227,0.05);
+      --card-radius: 3px;
+      --gutter: 64px;
+
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink-black);
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--newsprint);
+      line-height: 1.7;
+    }
+
+    /* ── Layout ── */
+    .sg-wrap { max-width: 1100px; margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* ── Cover ── */
+    .sg-cover {
+      padding: 80px var(--gutter) 60px;
+      background: #1a1a1a;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+      max-width: 100%;
+      margin: 0;
+    }
+    .sg-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sg-eyebrow::before {
+      content: '';
+      display: inline-block; width: 24px; height: 1px;
+      background: var(--cyan-accent);
+    }
+    .sg-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(36px, 5vw, 64px); font-weight: 700;
+      line-height: 1.05; letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+    .sg-title em { color: var(--cyan-accent); font-style: italic; }
+    .sg-subtitle {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px; color: rgba(255,255,255,0.5);
+      margin-top: 14px; max-width: 500px;
+    }
+    .sg-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); line-height: 2.2;
+      text-align: right;
+    }
+    .sg-meta span { color: rgba(255,255,255,0.75); display: block; font-size: 11px; letter-spacing: 0.05em; }
+
+    /* ── Section ── */
+    .sg-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--rule-grey);
+    }
+    .sg-section:last-child { border-bottom: none; }
+    .sg-section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--cyan-accent); margin-bottom: 10px;
+    }
+    .sg-section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 600; color: var(--newsprint);
+      margin-bottom: 32px; line-height: 1.2;
+    }
+    .sg-section-desc {
+      font-size: 15px; color: var(--text-grey);
+      max-width: 600px; margin-bottom: 40px; line-height: 1.8;
+    }
+
+    /* ── Themes side-by-side ── */
+    .theme-sample {
+      padding: 32px;
+      background: #ffffff;
+    }
+    .theme-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #666666; margin-bottom: 20px;
+    }
+    .theme-title-demo {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px; font-weight: 700; line-height: 1.1;
+      color: #111111; margin-bottom: 8px;
+    }
+    .theme-title-demo em { font-style: italic; color: #1ea5e3; }
+    .theme-body-demo {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px; line-height: 1.7; color: rgba(17,17,17,0.72);
+    }
+    .theme-chips { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+    .theme-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 2px;
+      border: 1px solid #e0e0e0; color: #666666; background: #f0f0f0;
+    }
+    .theme-chip.active { background: #1ea5e3; color: #fff; border-color: #1ea5e3; }
+
+    /* ── Colour palette ── */
+    .colour-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .colour-card {
+      border: 1px solid var(--rule-grey);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+    .colour-swatch {
+      height: 64px;
+    }
+    .colour-info {
+      padding: 10px 12px;
+      background: var(--dark-grey);
+    }
+    .colour-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-grey); display: block; margin-bottom: 3px;
+    }
+    .colour-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--newsprint); font-weight: 500;
+    }
+    .colour-role {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px; color: var(--text-grey); margin-top: 4px;
+    }
+
+    /* ── Typography ── */
+    .type-specimen {
+      border: 1px solid var(--rule-grey);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      margin-bottom: 12px;
+      box-shadow: var(--card-shadow);
+    }
+    .type-header {
+      padding: 10px 16px;
+      background: var(--mid-dark);
+      border-bottom: 1px solid var(--rule-grey);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .type-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-grey);
+    }
+    .type-spec {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.06em;
+      color: var(--cyan-accent);
+    }
+    .type-body {
+      padding: 24px 20px;
+      background: var(--dark-grey);
+    }
+
+    .type-display { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--newsprint); }
+    .type-display em { font-style: italic; color: var(--cyan-accent); }
+    .type-heading1 { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 600; color: var(--newsprint); }
+    .type-heading2 { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 600; color: var(--newsprint); }
+    .type-body-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 15px; line-height: 1.75; color: var(--newsprint-dim); max-width: 560px; }
+    .type-body-text-sm { font-family: 'Source Serif 4', Georgia, serif; font-size: 13px; line-height: 1.7; color: var(--newsprint-dim); }
+    .type-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.05em; color: var(--newsprint); }
+    .type-mono-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-grey); }
+    .type-stat { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; color: var(--newsprint); }
+
+    /* ── Components ── */
+    .component-row {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      align-items: flex-start; margin-bottom: 32px;
+    }
+
+    /* Stat cards */
+    .hstat {
+      text-align: center; padding: 14px 20px;
+      border: 1px solid var(--rule-grey);
+      background: var(--dark-grey); min-width: 100px;
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+    }
+    .hstat-val {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; line-height: 1;
+    }
+    .hstat-val.cyan { color: var(--cyan-accent); }
+    .hstat-val.red { color: var(--leaked-red); }
+    .hstat-val.purple { color: var(--purple-accent); }
+    .hstat-val.green { color: var(--positive); }
+    .hstat-lbl {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-grey); margin-top: 6px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 9px 16px; border: 1px solid var(--cyan-accent);
+      background: var(--cyan-accent); color: #fff;
+      cursor: pointer; border-radius: var(--card-radius);
+      white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-secondary {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 9px 14px; border: 1px solid var(--rule-grey);
+      background: transparent; color: var(--text-grey);
+      cursor: pointer; border-radius: var(--card-radius);
+      white-space: nowrap;
+    }
+    .btn-ghost {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 9px 14px; border: 1px solid var(--rule-grey);
+      background: var(--dark-grey); color: var(--text-grey);
+      cursor: pointer; border-radius: var(--card-radius);
+      white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    /* Search */
+    .search-demo-wrap { position: relative; }
+    .search-demo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; letter-spacing: 0.05em;
+      padding: 9px 16px 9px 36px;
+      background: var(--dark-grey); border: 1px solid var(--rule-grey);
+      color: var(--newsprint); width: 240px;
+      border-radius: var(--card-radius);
+    }
+    .search-demo:focus { border-color: var(--cyan-accent); outline: none; }
+    .search-demo::placeholder { color: var(--col-none); }
+    .search-icon-demo {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--col-none); font-size: 14px;
+    }
+
+    /* Legend chips */
+    .legend-bar-demo {
+      display: flex; gap: 10px; padding: 12px 16px;
+      background: var(--mid-dark); border: 1px solid var(--rule-grey);
+      border-radius: var(--card-radius);
+      flex-wrap: wrap;
+    }
+    .legend-chip-demo {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-grey); padding: 4px 8px; border-radius: 3px;
+    }
+    .legend-chip-demo.active {
+      background: rgba(30,165,227,0.08);
+      color: var(--newsprint);
+      outline: 1px solid rgba(30,165,227,0.2);
+    }
+    .legend-swatch-demo { width: 14px; height: 8px; border-radius: 1px; }
+
+    /* Price cells */
+    .price-cells {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .pc-demo {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      font-weight: 500; padding: 5px 10px; border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+    .pc-neg  { color: #2e7d32; background: rgba(46,125,50,0.07); }
+    .pc-zero { color: rgba(17,17,17,0.40); background: rgba(17,17,17,0.03); border: 1px solid var(--rule-grey); }
+    .pc-low  { color: #ff8f00; background: rgba(255,143,0,0.06); }
+    .pc-mid  { color: #e53935; background: rgba(229,57,53,0.06); }
+    .pc-high { color: #e53935; background: rgba(229,57,53,0.06); }
+    .pc-na   { color: #aaaaaa; font-size: 9px; letter-spacing: 0.08em; }
+
+    /* Tooltip demo */
+    .tooltip-demo {
+      background: var(--dark-grey); border: 1px solid var(--rule-grey);
+      padding: 14px 16px; max-width: 320px;
+      box-shadow: 0 1px 3px rgba(30,165,227,0.06), 0 4px 16px rgba(30,165,227,0.08);
+      border-radius: var(--card-radius);
+    }
+    .tip-name-d { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--newsprint); margin-bottom: 3px; }
+    .tip-meta-d { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-grey); letter-spacing: 0.05em; margin-bottom: 10px; }
+    .tip-head-d { font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan-accent); padding-top: 8px; border-top: 1px solid var(--rule-grey); margin-bottom: 6px; }
+    .tip-row-d { display: grid; grid-template-columns: 70px 60px 60px; font-family: 'JetBrains Mono', monospace; font-size: 9px; gap: 0; }
+    .tip-row-d span { padding: 2px 0; }
+    .tip-row-d .lbl { color: var(--text-grey); text-transform: uppercase; }
+    .tip-row-d .val { color: var(--newsprint); text-align: right; }
+    .tip-row-d .diff-green { color: var(--positive); text-align: right; }
+    .tip-row-d .diff-red { color: var(--leaked-red); text-align: right; }
+    .tip-row-d .diff-amber { color: #ff8f00; text-align: right; }
+
+    /* Data colour chips */
+    .data-cols {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .dc-item {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .dc-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .dc-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-grey);
+    }
+
+    /* Table mini preview */
+    .table-preview {
+      border: 1px solid var(--rule-grey); border-radius: var(--card-radius);
+      overflow: hidden; box-shadow: var(--card-shadow);
+      overflow-x: auto;
+    }
+    .tp { border-collapse: collapse; width: 100%; min-width: 680px; }
+    .tp thead { background: rgba(244,241,235,0.97); }
+    .tp th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan-accent); text-align: left; padding: 8px 12px;
+      border-bottom: 2px solid var(--rule-grey); white-space: nowrap;
+    }
+    .tp th.r { text-align: right; }
+    .tp th.priv { color: var(--purple-accent); }
+    .tp td {
+      font-size: 12px; padding: 7px 12px;
+      border-bottom: 1px solid rgba(17,17,17,0.06);
+      vertical-align: middle;
+    }
+    .tp tbody tr:nth-child(even) { background: rgba(30,165,227,0.015); }
+    .tp .mono { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-grey); text-align: right; }
+    .tp .hotel-name { font-family: 'Source Serif 4', Georgia, serif; color: var(--newsprint); }
+    .tp .hotel-name.hm { color: var(--cyan-accent); }
+    .tp td.priv-col { background: rgba(245,197,24,0.05); }
+    .tp .stars { text-align: center; }
+    .sp-demo { display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin: 0 1px; }
+    .sp-demo.on { background: var(--cyan-accent); }
+    .sp-demo.off { border: 1px solid var(--rule-grey); }
+
+    /* Spacing tokens */
+    .spacing-row {
+      display: flex; gap: 0; align-items: flex-end; margin-bottom: 24px;
+    }
+    .sp-item {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      margin-right: 20px;
+    }
+    .sp-bar {
+      background: var(--cyan-accent); width: 24px; border-radius: 2px;
+      opacity: 0.7;
+    }
+    .sp-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px; letter-spacing: 0.08em; color: var(--text-grey);
+      text-transform: uppercase;
+    }
+
+    /* Icons / symbols */
+    .icon-row {
+      display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+    }
+    .icon-item {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .icon-symbol {
+      font-size: 20px; color: var(--newsprint); line-height: 1;
+    }
+    .icon-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-grey);
+    }
+
+    /* Focus ring demo */
+    .focus-demo {
+      display: inline-block; padding: 8px 14px;
+      border: 1px solid var(--rule-grey);
+      border-radius: var(--card-radius);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--newsprint);
+      outline: 2px solid var(--cyan-accent); outline-offset: 2px;
+    }
+
+    /* Progress bar demo */
+    .progress-demo {
+      height: 3px; background: var(--rule-grey);
+      border-radius: 2px; margin: 8px 0 16px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; width: 62%; background: var(--cyan-accent);
+    }
+
+    /* ── Footer ── */
+    .sg-footer {
+      text-align: center; padding: 60px var(--gutter);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-grey); line-height: 2.2;
+      border-top: 1px solid var(--rule-grey);
+    }
+
+    /* ── Divider ── */
+    .sg-divider {
+      height: 1px; background: var(--rule-grey); margin: 32px 0;
+    }
+
+    /* ── Token table ── */
+    .token-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .token-table th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan-accent); text-align: left; padding: 8px 12px;
+      border-bottom: 2px solid var(--rule-grey); background: var(--mid-dark);
+    }
+    .token-table td {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      padding: 7px 12px; border-bottom: 1px solid var(--row-divider, rgba(17,17,17,0.06));
+      color: var(--text-grey); vertical-align: top;
+    }
+    .token-table td:first-child { color: var(--cyan-accent); }
+    .token-table td:last-child { font-family: 'Source Serif 4', Georgia, serif; font-size: 12px; }
+    .token-table tr:nth-child(even) td { background: rgba(30,165,227,0.015); }
+    /* ══════════════════════════════════════════
+       NEW COMPONENTS
+    ══════════════════════════════════════════ */
+
+    /* ── Booking Summary ── */
+    .bs-wrap {
+      border: 1px solid var(--rule-grey);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 360px;
+      box-shadow: var(--card-shadow);
+      background: var(--dark-grey);
+    }
+    .bs-section { padding: 16px 20px; border-bottom: 1px solid var(--rule-grey); }
+    .bs-section:last-child { border-bottom: none; }
+    .bs-section-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 15px; font-weight: 600; color: var(--newsprint);
+      margin-bottom: 14px;
+    }
+    .bs-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 3px 0;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px;
+    }
+    .bs-row .bs-label { color: var(--text-grey); }
+    .bs-row .bs-val { font-weight: 600; color: var(--newsprint); }
+    .bs-row .bs-val.accent { color: var(--cyan-accent); }
+    .bs-divider { height: 1px; background: var(--rule-grey); margin: 8px 0; }
+    .bs-total-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 4px 0;
+    }
+    .bs-total-label {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 14px; font-weight: 600; color: var(--newsprint);
+    }
+    .bs-total-val {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px; font-weight: 700; color: var(--newsprint);
+    }
+    .bs-total-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-grey); text-align: right; margin-top: 2px;
+    }
+    .bs-terms {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 12px; line-height: 1.6; color: var(--text-grey);
+    }
+    .bs-terms strong { color: var(--newsprint); }
+    .bs-room-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0 6px;
+    }
+    .bs-room-name {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 14px; font-weight: 600; color: var(--newsprint);
+    }
+    .bs-room-icon { color: var(--text-grey); font-size: 20px; }
+
+    /* ── Night Selector ── */
+    .ns-wrap {
+      border: 1px solid var(--rule-grey);
+      border-radius: 4px; overflow: hidden;
+      background: var(--dark-grey);
+      box-shadow: var(--card-shadow);
+    }
+    .ns-header {
+      background: var(--newsprint);
+      color: #fff;
+      text-align: center;
+      padding: 8px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .ns-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+    }
+    .ns-day {
+      border-right: 1px solid var(--rule-grey);
+      padding: 12px 6px;
+      text-align: center;
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+    .ns-day:last-child { border-right: none; }
+    .ns-day-name {
+      font-size: 13px; font-weight: 600; color: var(--newsprint);
+      display: block; margin-bottom: 2px;
+    }
+    .ns-day-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-grey); display: block; margin-bottom: 10px;
+    }
+    .ns-checkbox {
+      width: 28px; height: 28px; border: 2px solid var(--rule-grey);
+      border-radius: 4px; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 8px; font-size: 14px; color: transparent;
+    }
+    .ns-checkbox.checked-light {
+      background: var(--cyan-accent); border-color: var(--cyan-accent); color: #fff;
+    }
+    .ns-checkbox.checked-dark {
+      background: var(--newsprint); border-color: var(--newsprint); color: #fff;
+    }
+    .ns-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: var(--text-grey); display: block;
+    }
+    .ns-price.accent { color: var(--cyan-accent); font-weight: 500; }
+    .ns-event-header {
+      grid-column: span 4;
+      background: var(--newsprint);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 4px; text-align: center;
+      border-right: 1px solid var(--rule-grey);
+    }
+    .ns-spacer { border-right: 1px solid var(--rule-grey); }
+
+    /* Confirm booking card */
+    .confirm-card {
+      border: 1px solid var(--rule-grey); border-radius: 6px;
+      padding: 24px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--dark-grey); box-shadow: var(--card-shadow);
+      margin-top: 12px;
+    }
+    .confirm-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 20px; font-weight: 600; color: var(--newsprint); margin-bottom: 4px;
+    }
+    .confirm-sub {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px; color: var(--text-grey);
+    }
+    .confirm-btn {
+      background: var(--newsprint); color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px 28px; border: none; border-radius: 4px; cursor: pointer;
+      white-space: nowrap;
+    }
+    .action-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;
+    }
+    .action-card {
+      border: 1px solid var(--rule-grey); border-radius: 6px;
+      padding: 18px 20px; background: var(--dark-grey);
+    }
+    .action-card-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px; font-weight: 600; color: var(--newsprint); margin-bottom: 4px;
+    }
+    .action-card-link {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px; color: var(--cyan-accent); text-decoration: none;
+    }
+
+    /* ── Stats Display ── */
+    .stats-block {
+      border: 1px solid var(--rule-grey); border-radius: 4px;
+      background: var(--dark-grey); box-shadow: var(--card-shadow);
+      overflow: hidden;
+    }
+    .stats-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px; font-weight: 600; color: var(--newsprint);
+      padding: 18px 24px 0;
+    }
+    .stats-row {
+      display: flex; align-items: stretch;
+      padding: 16px 24px 20px;
+      gap: 0;
+    }
+    .stats-group {
+      display: flex; gap: 24px; align-items: flex-end;
+    }
+    .stats-divider {
+      width: 1px; background: var(--rule-grey);
+      margin: 0 28px; flex-shrink: 0; align-self: stretch;
+    }
+    .stats-group-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-grey); margin-bottom: 6px;
+      white-space: nowrap;
+    }
+    .stats-group-label strong { color: var(--newsprint); }
+    .stat-item { text-align: left; }
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px; font-weight: 700; line-height: 1;
+      color: var(--newsprint); display: block;
+    }
+    .stat-sublabel {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-grey); margin-top: 4px; display: block;
+    }
+
+    /* ── Admin Table ── */
+    .admin-table-wrap {
+      border: 1px solid var(--rule-grey); border-radius: 4px;
+      overflow: hidden; box-shadow: var(--card-shadow);
+      overflow-x: auto;
+    }
+    .admin-table { border-collapse: collapse; width: 100%; min-width: 900px; }
+    .admin-table thead { background: var(--mid-dark); }
+    .admin-table th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-grey); text-align: left;
+      padding: 10px 14px; border-bottom: 1px solid var(--rule-grey);
+      white-space: nowrap;
+    }
+    .admin-table td {
+      padding: 12px 14px; border-bottom: 1px solid var(--rule-grey);
+      vertical-align: top; font-size: 13px;
+    }
+    .admin-table tbody tr:last-child td { border-bottom: none; }
+    .admin-table tbody tr:hover td { background: rgba(30,165,227,0.03); }
+    .admin-name {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px; font-weight: 600; color: var(--newsprint);
+      display: block; margin-bottom: 2px;
+    }
+    .admin-email {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 12px; color: var(--cyan-accent);
+    }
+    .admin-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--mid-dark); color: var(--text-grey);
+      padding: 3px 7px; border-radius: 2px; border: 1px solid var(--rule-grey);
+      display: inline-block; margin-right: 6px; white-space: nowrap;
+    }
+    .admin-invoice {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--cyan-accent);
+    }
+    .admin-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--newsprint); white-space: nowrap;
+    }
+    .admin-actions {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    }
+    .admin-action {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 12px; color: var(--cyan-accent);
+      cursor: pointer; white-space: nowrap;
+    }
+    .admin-action.muted { color: var(--text-grey); }
+
+  </style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="sg-cover">
+  <div style="max-width:1100px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:end; padding:0 var(--gutter);">
+  <div>
+    <div class="sg-eyebrow">Style Guide · v1.0</div>
+    <h1 class="sg-title">Gulf Print &amp; Pack <em>2026</em></h1>
+    <p class="sg-subtitle">Design language, tokens, typography, and component reference for the Roomberg × HotelMap event data interface.</p>
+  </div>
+  <div class="sg-meta">
+    Theme<span>Analyst · Light</span>
+    Background<span>#ffffff</span>
+    Fonts<span>Playfair · Serif 4 · JetBrains</span>
+  </div>
+  </div>
+</div>
+
+<div class="sg-wrap">
+
+  <!-- 1. Theme -->
+  <section class="sg-section">
+    <div class="sg-section-label">01 — Theme</div>
+    <h2 class="sg-section-title">Analyst — Light</h2>
+    <p class="sg-section-desc">A warm, newsprint-toned workspace inspired by Tufte's data minimalism. Parchment ground with teal accents, ink-black type, and zero decorative noise. The default and only theme for this interface.</p>
+
+    <div style="border: 1px solid var(--rule-grey); border-radius: 4px; overflow: hidden; max-width: 560px;">
+      <div class="theme-sample">
+        <div class="theme-label">☀ Analyst — Light · #ffffff</div>
+        <div class="theme-title-demo">Gulf Print &amp; <em>Pack 2026</em></div>
+        <div class="theme-body-demo" style="margin-top:8px;">Warm parchment ground. Teal accents. Ink-black type. Tufte-inspired data minimalism with zero decorative noise.</div>
+        <div class="theme-chips">
+          <span class="theme-chip active">All Hotels</span>
+          <span class="theme-chip">HotelMap</span>
+          <span class="theme-chip">Agency</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Colours — Light -->
+  <section class="sg-section">
+    <div class="sg-section-label">02 — Colour</div>
+    <h2 class="sg-section-title">Colour Tokens</h2>
+    <p class="sg-section-desc">All colour values are defined as CSS custom properties (design tokens). Helmholtz–Kohlrausch-calibrated saturation ensures legibility on the warm parchment ground without eye-strain.</p>
+
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-grey); margin-bottom:12px; display:flex; align-items:center; gap:12px;">Primary <span style="flex:1; height:1px; background:var(--rule-grey); display:inline-block;"></span></p>
+    <div class="colour-grid">
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#ffffff; border-bottom:1px solid #e0e0e0;"></div>
+        <div class="colour-info"><span class="colour-name">ink-black</span><span class="colour-hex">#ffffff</span><div class="colour-role">Page ground</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#ffffff; border-bottom:1px solid #e0e0e0;"></div>
+        <div class="colour-info"><span class="colour-name">dark-grey</span><span class="colour-hex">#ffffff</span><div class="colour-role">Card / surface</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#f0f0f0;"></div>
+        <div class="colour-info"><span class="colour-name">mid-dark</span><span class="colour-hex">#f0f0f0</span><div class="colour-role">Toolbar / legend</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#111111;"></div>
+        <div class="colour-info"><span class="colour-name">newsprint</span><span class="colour-hex">#111111</span><div class="colour-role">Primary text</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#1ea5e3;"></div>
+        <div class="colour-info"><span class="colour-name">cyan-accent</span><span class="colour-hex">#1ea5e3</span><div class="colour-role">Links / actions</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#0d8fc7;"></div>
+        <div class="colour-info"><span class="colour-name">cyan-bright</span><span class="colour-hex">#0d8fc7</span><div class="colour-role">Hover state</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#666666;"></div>
+        <div class="colour-info"><span class="colour-name">text-grey</span><span class="colour-hex">#666666</span><div class="colour-role">Secondary text</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#e0e0e0;"></div>
+        <div class="colour-info"><span class="colour-name">rule-grey</span><span class="colour-hex">#e0e0e0</span><div class="colour-role">Borders / rules</div></div>
+      </div>
+    </div>
+
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-grey); margin-bottom:12px; margin-top:32px; display:flex; align-items:center; gap:12px;">Semantic <span style="flex:1; height:1px; background:var(--rule-grey); display:inline-block;"></span></p>
+    <div class="colour-grid">
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#2e7d32;"></div>
+        <div class="colour-info"><span class="colour-name">positive</span><span class="colour-hex">#2e7d32</span><div class="colour-role">Saving / below market</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#c62828;"></div>
+        <div class="colour-info"><span class="colour-name">negative</span><span class="colour-hex">#c62828</span><div class="colour-role">Loss / above market</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#e53935;"></div>
+        <div class="colour-info"><span class="colour-name">leaked-red</span><span class="colour-hex">#e53935</span><div class="colour-role">High price delta</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#f5c518;"></div>
+        <div class="colour-info"><span class="colour-name">gold-accent</span><span class="colour-hex">#f5c518</span><div class="colour-role">Private rate columns</div></div>
+      </div>
+    </div>
+
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-grey); margin-bottom:12px; margin-top:32px; display:flex; align-items:center; gap:12px;">Data Series <span style="flex:1; height:1px; background:var(--rule-grey); display:inline-block;"></span></p>
+    <div class="colour-grid">
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#1ea5e3;"></div>
+        <div class="colour-info"><span class="colour-name">col-hm</span><span class="colour-hex">#1ea5e3</span><div class="colour-role">HotelMap source</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#f5c518;"></div>
+        <div class="colour-info"><span class="colour-name">col-agency</span><span class="colour-hex">#f5c518</span><div class="colour-role">Agency source</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#ff8f00;"></div>
+        <div class="colour-info"><span class="colour-name">col-duplo</span><span class="colour-hex">#ff8f00</span><div class="colour-role">Duplo source</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#e53935;"></div>
+        <div class="colour-info"><span class="colour-name">col-links</span><span class="colour-hex">#e53935</span><div class="colour-role">Links source</div></div>
+      </div>
+      <div class="colour-card">
+        <div class="colour-swatch" style="background:#aaaaaa;"></div>
+        <div class="colour-info"><span class="colour-name">col-none</span><span class="colour-hex">#aaaaaa</span><div class="colour-role">No source / muted</div></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 3. Typography -->
+  <section class="sg-section">
+    <div class="sg-section-label">03 — Typography</div>
+    <h2 class="sg-section-title">Type System</h2>
+    <p class="sg-section-desc">Three complementary families: <em>Playfair Display</em> for display headings and numerics; <em>Source Serif 4</em> for body copy; <em>JetBrains Mono</em> for labels, metadata, and tabular data.</p>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Display / Page Title</span>
+        <span class="type-spec">Playfair Display · 700 · −0.02em · clamp(32px–56px)</span>
+      </div>
+      <div class="type-body">
+        <div class="type-display">Gulf Print &amp; <em>Pack 2026</em></div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Heading 1 / Section</span>
+        <span class="type-spec">Playfair Display · 600 · 32px</span>
+      </div>
+      <div class="type-body">
+        <div class="type-heading1">Hotel Rate Analysis</div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Heading 2 / Card</span>
+        <span class="type-spec">Playfair Display · 600 · 22px</span>
+      </div>
+      <div class="type-body">
+        <div class="type-heading2">Market Rate Comparison</div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Body Copy</span>
+        <span class="type-spec">Source Serif 4 · 400 · 15px · 1.75 leading · newsprint-dim</span>
+      </div>
+      <div class="type-body">
+        <div class="type-body-text">Rate differentials are calculated as a percentage of the market baseline and bucketed into five heat tiers. Negative values indicate a saving against the reference rate; positive values indicate a premium.</div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Table Body / Small Copy</span>
+        <span class="type-spec">Source Serif 4 · 400 · 13px · 1.7 leading</span>
+      </div>
+      <div class="type-body">
+        <div class="type-body-text-sm">Displayed rates are per-room per-night in the hotel's billing currency. Three-night totals are shown for market comparisons.</div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Data / Mono Label</span>
+        <span class="type-spec">JetBrains Mono · 400 · 12px · 0.05em tracking</span>
+      </div>
+      <div class="type-body">
+        <div class="type-mono">AED 1,247.00 · 3.2 km · Sort: dist ▲</div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Uppercase Label / Eyebrow</span>
+        <span class="type-spec">JetBrains Mono · 400 · 9–10px · 0.2–0.4em tracking · uppercase</span>
+      </div>
+      <div class="type-body">
+        <div class="type-mono-label">Gulf Print &amp; Pack 2026 · HotelMap · Roomberg</div>
+      </div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-header">
+        <span class="type-tag">Stat / KPI Value</span>
+        <span class="type-spec">Playfair Display · 700 · 28–36px · line-height 1</span>
+      </div>
+      <div class="type-body">
+        <div class="type-stat" style="color:var(--cyan-accent);">47</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Components -->
+  <section class="sg-section">
+    <div class="sg-section-label">04 — Components</div>
+    <h2 class="sg-section-title">UI Components</h2>
+
+    <!-- Stat Cards -->
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-grey); margin-bottom:14px;">KPI / Stat Cards</p>
+    <div class="component-row">
+      <div class="hstat"><div class="hstat-val cyan">47</div><div class="hstat-lbl">Total Hotels</div></div>
+      <div class="hstat"><div class="hstat-val">22</div><div class="hstat-lbl">Juniper Linked</div></div>
+      <div class="hstat"><div class="hstat-val red">12</div><div class="hstat-lbl">Rate Leaks</div></div>
+      <div class="hstat"><div class="hstat-val purple">8</div><div class="hstat-lbl">Private Rates</div></div>
+      <div class="hstat"><div class="hstat-val green">−4.2%</div><div class="hstat-lbl">Avg Saving</div></div>
+    </div>
+
+    <!-- Buttons -->
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-grey); margin-bottom:14px; margin-top:24px;">Buttons &amp; Controls</p>
+    <div class="component-row" style="align-items:center;">
+      <button class="btn-primary">☀ Analyst</button>
+      <button class="btn-secondary">All Hotels</button>
+      <button class="btn-secondary" style="border-color:var(--cyan-accent); color:var(--cyan-accent);">HotelMap Only</button>
+      <button class="btn-ghost">Export CSV</button>
+      <div class="search-demo-wrap">
+        <span class="search-icon-demo">⌕</span>
+        <input class="search-demo" type="text" placeholder="Search hotels…" readonly>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-grey); margin-bottom:8px; margin-top:8px;">Scroll Progress Bar (3px · fixed top)</p>
+    <div class="progress-demo"><div class="progress-fill"></div></div>
+
+    <!-- Legend chips -->
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-grey); margin-bottom:14px; margin-top:8px;">Legend / Filter Chips</p>
+    <div class="legend-bar-demo">
+      <div class="legend-chip-demo active">
+        <div class="legend-swatch-demo" style="background:rgba(30,165,227,0.6);"></div>HotelMap
+      </div>
+      <div class="legend-chip-demo">
+        <div class="legend-swatch-demo" style="background:rgba(245,197,24,0.6);"></div>Agency
+      </div>
+      <div class="legend-chip-demo">
+        <div class="legend-swatch-demo" style="background:rgba(255,143,0,0.4);"></div>Duplo
+      </div>
+      <div class="legend-chip-demo">
+        <div class="legend-swatch-demo" style="background:rgba(229,57,53,0.4);"></div>Links
+      </div>
+      <div class="legend-chip-demo">
+        <div class="legend-swatch-demo" style="background:#aaaaaa;"></div>None
+      </div>
+    </div>
+
+    <!-- Price cells -->
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-grey); margin-bottom:14px; margin-top:24px;">Price Delta Heat Cells</p>
+    <div class="price-cells">
+      <div class="pc-demo pc-neg">−8.4%</div>
+      <div class="pc-demo pc-zero">0.0%</div>
+      <div class="pc-demo pc-low">+2.1%</div>
+      <div class="pc-demo pc-mid">+7.6%</div>
+      <div class="pc-demo pc-high">+14.2%</div>
+      <div class="pc-demo pc-na">N/A</div>
+    </div>
+    <div style="margin-top:10px;">
+      <table class="token-table" style="max-width:500px;">
+        <thead><tr><th>Tier</th><th>Range</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--positive);">neg</td><td>≤ −5%</td><td>Saving vs market / private</td></tr>
+          <tr><td style="color:rgba(17,17,17,0.40);">zero</td><td>−5% to 0%</td><td>At or near parity</td></tr>
+          <tr><td style="color:#ff8f00;">low</td><td>0% to +5%</td><td>Slight premium</td></tr>
+          <tr><td style="color:#e53935;">mid</td><td>+5% to +10%</td><td>Moderate premium</td></tr>
+          <tr><td style="color:var(--leaked-red);">high</td><td>&gt; +10%</td><td>Rate leak — significant premium</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tooltip -->
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-grey); margin-bottom:14px; margin-top:24px;">Hover Tooltip</p>
+    <div class="tooltip-demo">
+      <div class="tip-name-d">Sofitel Dubai Downtown</div>
+      <div class="tip-meta-d">★★★★★ · 1.2 km from venue</div>
+      <div class="tip-head-d">vs Market Rates</div>
+      <div class="tip-row-d">
+        <span></span><span style="color:var(--col-none); text-transform:uppercase; font-size:8px;">Market</span><span style="color:var(--col-none); text-transform:uppercase; font-size:8px; text-align:right;">Diff</span>
+      </div>
+      <div class="tip-row-d"><span class="lbl">Cheapest</span><span class="val">$342</span><span class="diff-green">−6.2%</span></div>
+      <div class="tip-row-d"><span class="lbl">Breakfast</span><span class="val">$418</span><span class="diff-amber">+2.1%</span></div>
+      <div class="tip-row-d"><span class="lbl">Flexible</span><span class="val">$511</span><span class="diff-red">+11.4%</span></div>
+    </div>
+
+    <!-- Focus ring -->
+    <p style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-grey); margin-bottom:14px; margin-top:24px;">Focus State (Accessibility)</p>
+    <div><span class="focus-demo">Focused Element</span></div>
+    <p style="font-family:'Source Serif 4',Georgia,serif; font-size:12px; color:var(--text-grey); margin-top:8px;">2px solid <code style="font-family:'JetBrains Mono',monospace; font-size:10px; background:var(--mid-dark); padding:1px 4px; border-radius:2px;">#1ea5e3</code> · 2px offset · applied via <code style="font-family:'JetBrains Mono',monospace; font-size:10px; background:var(--mid-dark); padding:1px 4px; border-radius:2px;">:focus-visible</code></p>
+  </section>
+
+  <!-- 5. Table anatomy -->
+  <section class="sg-section">
+    <div class="sg-section-label">05 — Data Table</div>
+    <h2 class="sg-section-title">Table Anatomy</h2>
+    <p class="sg-section-desc">The primary data surface. Sticky header, sortable columns, alternating row stripe, and hover state. Public columns use cyan; private/HM-rate columns use purple with a subtle tint.</p>
+
+    <div class="table-preview">
+      <table class="tp">
+        <thead>
+          <tr>
+            <th style="width:30px; color:var(--col-none);">#</th>
+            <th>Hotel</th>
+            <th class="r">Stars</th>
+            <th class="r">Dist ↕</th>
+            <th class="r">Market ↕</th>
+            <th class="r">Cheapest ↕</th>
+            <th class="r">Breakfast ↕</th>
+            <th class="r priv" style="border-left:2px solid var(--rule-grey);">HM Priv ↕</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">1</td>
+            <td class="hotel-name hm">Sofitel Dubai Downtown</td>
+            <td style="text-align:center;"><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo on"></span></td>
+            <td class="mono">1.2 km</td>
+            <td class="mono">$342</td>
+            <td><div class="pc-demo pc-neg" style="display:inline-block;">−6.2%</div></td>
+            <td><div class="pc-demo pc-low" style="display:inline-block;">+2.1%</div></td>
+            <td class="priv-col"><div class="pc-demo pc-neg" style="display:inline-block; color:#f5c518; background:rgba(245,197,24,0.07);">−3.8%</div></td>
+          </tr>
+          <tr>
+            <td class="mono">2</td>
+            <td class="hotel-name">Hyatt Regency Dubai Creek</td>
+            <td style="text-align:center;"><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo off"></span></td>
+            <td class="mono">2.4 km</td>
+            <td class="mono">$287</td>
+            <td><div class="pc-demo pc-high" style="display:inline-block;">+12.4%</div></td>
+            <td><div class="pc-demo pc-mid" style="display:inline-block;">+7.6%</div></td>
+            <td class="priv-col"><div class="pc-demo pc-na" style="display:inline-block;">N/A</div></td>
+          </tr>
+          <tr>
+            <td class="mono">3</td>
+            <td class="hotel-name hm">Aloft Dubai Creek</td>
+            <td style="text-align:center;"><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo on"></span><span class="sp-demo off"></span></td>
+            <td class="mono">3.1 km</td>
+            <td class="mono">$198</td>
+            <td><div class="pc-demo pc-zero" style="display:inline-block;">0.0%</div></td>
+            <td><div class="pc-demo pc-neg" style="display:inline-block;">−5.1%</div></td>
+            <td class="priv-col"><div class="pc-demo pc-neg" style="display:inline-block; color:#f5c518; background:rgba(245,197,24,0.07);">−7.2%</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:24px;">
+      <table class="token-table" style="max-width:600px;">
+        <thead><tr><th>Element</th><th>Token / Value</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>th font</td><td>JetBrains Mono · 9px · 0.1em</td><td>Uppercase, cyan-accent</td></tr>
+          <tr><td>th sticky top</td><td>48px</td><td>Below 3px progress bar + toolbar</td></tr>
+          <tr><td>th border-bottom</td><td>2px solid rule-grey</td><td>Double weight for visual separation</td></tr>
+          <tr><td>td font</td><td>Source Serif 4 · 13px</td><td>Hotel names</td></tr>
+          <tr><td>td mono</td><td>JetBrains Mono · 10–11px</td><td>Distances, prices, row numbers</td></tr>
+          <tr><td>row stripe</td><td>rgba(30,165,227,0.015)</td><td>Even rows, very subtle teal tint</td></tr>
+          <tr><td>row hover</td><td>rgba(30,165,227,0.03)</td><td>All rows on mouseover</td></tr>
+          <tr><td>row divider</td><td>rgba(17,17,17,0.06)</td><td>Border-bottom each row</td></tr>
+          <tr><td>private col</td><td>rgba(245,197,24,0.05)</td><td>Gold tint for HM private columns</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6. Spacing & radius -->
+  <section class="sg-section">
+    <div class="sg-section-label">06 — Space &amp; Shape</div>
+    <h2 class="sg-section-title">Spacing &amp; Radius Tokens</h2>
+
+    <div class="spacing-row">
+      <div class="sp-item"><div class="sp-bar" style="height:3px;"></div><span class="sp-val">3px<br>Progress</span></div>
+      <div class="sp-item"><div class="sp-bar" style="height:8px;"></div><span class="sp-val">8px<br>td pad</span></div>
+      <div class="sp-item"><div class="sp-bar" style="height:10px;"></div><span class="sp-val">10px<br>th pad</span></div>
+      <div class="sp-item"><div class="sp-bar" style="height:14px;"></div><span class="sp-val">14px<br>card pad</span></div>
+      <div class="sp-item"><div class="sp-bar" style="height:16px;"></div><span class="sp-val">16px<br>tooltip</span></div>
+      <div class="sp-item"><div class="sp-bar" style="height:40px;"></div><span class="sp-val">40px<br>gutter</span></div>
+      <div class="sp-item"><div class="sp-bar" style="height:60px;"></div><span class="sp-val">60px<br>section</span></div>
+    </div>
+
+    <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+      <div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-grey);">card-radius — 3px</span>
+        <div style="margin-top:8px; width:60px; height:36px; border:1px solid var(--rule-grey); border-radius:3px; background:var(--dark-grey); box-shadow:var(--card-shadow);"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Motion -->
+  <section class="sg-section">
+    <div class="sg-section-label">07 — Motion</div>
+    <h2 class="sg-section-title">Transitions &amp; Animation</h2>
+
+    <table class="token-table" style="max-width:680px;">
+      <thead><tr><th>Property</th><th>Duration</th><th>Easing</th><th>Used On</th></tr></thead>
+      <tbody>
+        <tr><td>background / color</td><td>0.3s</td><td>ease</td><td>Body, cards, toolbar</td></tr>
+        <tr><td>hover color</td><td>0.2s</td><td>ease</td><td>Links, masthead, th</td></tr>
+        <tr><td>filter buttons</td><td>0.25s</td><td>ease</td><td>Active state, border</td></tr>
+        <tr><td>row background</td><td>0.15s</td><td>ease</td><td>Table row hover / stripe</td></tr>
+        <tr><td>tooltip opacity</td><td>0.15s</td><td>ease</td><td>Show / hide on mousemove</td></tr>
+        <tr><td>scroll progress width</td><td>0.1s</td><td>linear</td><td>#progress bar</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-family:'Source Serif 4',Georgia,serif; font-size:13px; color:var(--text-grey); margin-top:16px; max-width:520px;">All transitions are disabled when <code style="font-family:'JetBrains Mono',monospace; font-size:10px; background:var(--mid-dark); padding:1px 4px; border-radius:2px;">prefers-reduced-motion: reduce</code> is set.</p>
+  </section>
+
+  <!-- 8. Booking Summary -->
+  <section class="sg-section">
+    <div class="sg-section-label">08 — Component</div>
+    <h2 class="sg-section-title">Booking Summary</h2>
+    <p class="sg-section-desc">Sidebar panel showing selected room, stay details, per-night breakdown, total, and cancellation terms. Uses Source Serif 4 for labels, Playfair Display for the total figure.</p>
+
+    <div class="bs-wrap">
+      <div class="bs-section">
+        <div class="bs-section-title">Your selection</div>
+      </div>
+      <div class="bs-section">
+        <div class="bs-room-row">
+          <span class="bs-room-name">Standard Room</span>
+          <span class="bs-room-icon">🛏</span>
+        </div>
+        <div class="bs-divider"></div>
+        <div class="bs-row"><span class="bs-label">Check in:</span><span class="bs-val">Mon 25 May 2026</span></div>
+        <div class="bs-row"><span class="bs-label">Check out:</span><span class="bs-val">Fri 29 May 2026</span></div>
+        <div class="bs-row"><span class="bs-label">Breakfast:</span><span class="bs-val">Yes</span></div>
+        <div class="bs-row"><span class="bs-label">Rooms:</span><span class="bs-val">1</span></div>
+        <div class="bs-row"><span class="bs-label">Nights:</span><span class="bs-val">3 nights</span></div>
+        <div class="bs-row"><span class="bs-label">Adults:</span><span class="bs-val">1</span></div>
+      </div>
+      <div class="bs-section">
+        <div class="bs-row"><span class="bs-label">25 May:</span><span class="bs-val">£267.73</span></div>
+        <div class="bs-row"><span class="bs-label">26 May:</span><span class="bs-val accent">Guest paid</span></div>
+        <div class="bs-row"><span class="bs-label">27 May:</span><span class="bs-val accent">Paid</span></div>
+        <div class="bs-row"><span class="bs-label">28 May:</span><span class="bs-val accent">Paid</span></div>
+        <div class="bs-row"><span class="bs-label">29 May:</span><span class="bs-val accent">Guest paid</span></div>
+        <div class="bs-row"><span class="bs-label">30 May:</span><span class="bs-val accent">Guest paid</span></div>
+      </div>
+      <div class="bs-section">
+        <div class="bs-total-row">
+          <span class="bs-total-label">Total*</span>
+          <div style="text-align:right;">
+            <div class="bs-total-val">£267.73</div>
+            <div class="bs-total-sub">308.00 €</div>
+          </div>
+        </div>
+      </div>
+      <div class="bs-section">
+        <div class="bs-terms"><strong>Cancellation terms</strong> Full payment is taken at the time of booking. This booking is non-refundable and cannot be modified or cancelled. <strong>Data usage</strong> Your Personal Data and Guest Details will be transmitted to the Hotel and may be disclosed to the Event Organiser.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Night Selector -->
+  <section class="sg-section">
+    <div class="sg-section-label">09 — Component</div>
+    <h2 class="sg-section-title">Booking Night Selector</h2>
+    <p class="sg-section-desc">A grid of selectable nights spanning the full event window. Event-date nights are highlighted with a dark header band. Checked nights use two states: light accent (cyan) for guest-paid nights, dark (navy/black) for organisationally-covered nights.</p>
+
+    <div class="ns-wrap" style="max-width:900px;">
+      <!-- Subheader row: event band -->
+      <div style="display:grid; grid-template-columns: repeat(8,1fr);">
+        <div style="border-right:1px solid var(--rule-grey);"></div>
+        <div style="border-right:1px solid var(--rule-grey);"></div>
+        <div style="border-right:1px solid var(--rule-grey);"></div>
+        <div class="ns-event-header">EVENT DATES</div>
+        <div style="border-right:1px solid var(--rule-grey);"></div>
+      </div>
+      <!-- Days grid -->
+      <div class="ns-grid" style="border-top:1px solid var(--rule-grey);">
+        <div class="ns-day">
+          <span class="ns-day-name">Sunday</span><span class="ns-day-date">24 May</span>
+          <div class="ns-checkbox"></div>
+          <span class="ns-price">£267.73</span>
+        </div>
+        <div class="ns-day">
+          <span class="ns-day-name">Monday</span><span class="ns-day-date">25 May</span>
+          <div class="ns-checkbox checked-light">✓</div>
+          <span class="ns-price accent">£267.73</span>
+        </div>
+        <div class="ns-day">
+          <span class="ns-day-name">Tuesday</span><span class="ns-day-date">26 May</span>
+          <div class="ns-checkbox checked-light">✓</div>
+          <span class="ns-price accent">Guest paid</span>
+        </div>
+        <div class="ns-day">
+          <span class="ns-day-name">Wednesday</span><span class="ns-day-date">27 May</span>
+          <div class="ns-checkbox checked-dark">✓</div>
+          <span class="ns-price accent">Paid</span>
+        </div>
+        <div class="ns-day">
+          <span class="ns-day-name">Thursday</span><span class="ns-day-date">28 May</span>
+          <div class="ns-checkbox checked-dark">✓</div>
+          <span class="ns-price accent">Paid</span>
+        </div>
+        <div class="ns-day">
+          <span class="ns-day-name">Friday</span><span class="ns-day-date">29 May</span>
+          <div class="ns-checkbox checked-light">✓</div>
+          <span class="ns-price accent">Guest paid</span>
+        </div>
+        <div class="ns-day">
+          <span class="ns-day-name">Saturday</span><span class="ns-day-date">30 May</span>
+          <div class="ns-checkbox checked-light">✓</div>
+          <span class="ns-price accent">Guest paid</span>
+        </div>
+        <div class="ns-day" style="border-right:none;">
+          <span class="ns-day-name">Sunday</span><span class="ns-day-date">31 May</span>
+          <div class="ns-checkbox"></div>
+          <span class="ns-price">£267.73</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirm / action cards -->
+    <div style="max-width:900px; margin-top:12px;">
+      <div class="confirm-card">
+        <div>
+          <div class="confirm-title">Confirm booking</div>
+          <div class="confirm-sub">I would like to confirm my booking as detailed above</div>
+        </div>
+        <button class="confirm-btn">CONFIRM BOOKING</button>
+      </div>
+      <div class="action-cards">
+        <div class="action-card">
+          <div class="action-card-title">Request modification</div>
+          <a class="action-card-link" href="#">I would like to request a modification</a>
+        </div>
+        <div class="action-card">
+          <div class="action-card-title">Decline booking</div>
+          <a class="action-card-link" href="#">I would like to cancel this reservation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Stats Display -->
+  <section class="sg-section">
+    <div class="sg-section-label">10 — Component</div>
+    <h2 class="sg-section-title">Stats Display</h2>
+    <p class="sg-section-desc">Compact summary bar showing grouped metrics. Section labels in JetBrains Mono uppercase; figures in Playfair Display at 32px. Vertical rules separate groups. Used in booking dashboards for at-a-glance totals.</p>
+
+    <div class="stats-block" style="max-width:820px;">
+      <div class="stats-title" style="border-bottom:1px solid var(--rule-grey); padding-bottom:14px; margin-bottom:0;">Bookings</div>
+      <div class="stats-row">
+        <!-- Guests group -->
+        <div>
+          <div class="stats-group-label">Guests</div>
+          <div class="stats-group">
+            <div class="stat-item">
+              <span class="stat-number">3</span>
+              <span class="stat-sublabel">Unconfirmed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-divider"></div>
+
+        <!-- Peak night group -->
+        <div>
+          <div class="stats-group-label">Peak Night</div>
+          <div class="stats-group">
+            <div class="stat-item"><span class="stat-number">79</span><span class="stat-sublabel">Rooms</span></div>
+            <div class="stat-item"><span class="stat-number">68</span><span class="stat-sublabel">Booked</span></div>
+            <div class="stat-item"><span class="stat-number">6</span><span class="stat-sublabel">Pending</span></div>
+            <div class="stat-item"><span class="stat-number">5</span><span class="stat-sublabel">Available</span></div>
+          </div>
+        </div>
+
+        <div class="stats-divider"></div>
+
+        <!-- All nights group -->
+        <div>
+          <div class="stats-group-label"><strong>All</strong> Nights</div>
+          <div class="stats-group">
+            <div class="stat-item"><span class="stat-number">1663</span><span class="stat-sublabel">Rooms</span></div>
+            <div class="stat-item"><span class="stat-number">1490</span><span class="stat-sublabel">Booked</span></div>
+            <div class="stat-item"><span class="stat-number">95</span><span class="stat-sublabel">Pending</span></div>
+            <div class="stat-item"><span class="stat-number">78</span><span class="stat-sublabel">Available</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Admin Table -->
+  <section class="sg-section">
+    <div class="sg-section-label">11 — Component</div>
+    <h2 class="sg-section-title">Admin / Booking Management Table</h2>
+    <p class="sg-section-desc">Full-width table for booking records. Name + email in first column, BLOCK badge + invoice number in second, country and date columns in mono, and a trailing actions column with accent-coloured links. Muted actions (Refund) use text-grey when unavailable.</p>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th style="min-width:180px;">Name</th>
+            <th>ID / Passport &nbsp; Invoices</th>
+            <th>Country</th>
+            <th>Confirmed</th>
+            <th>Cancelled</th>
+            <th>No-Show</th>
+            <th>Card (last 4)</th>
+            <th style="min-width:340px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="admin-name">Nathan Matthews</span><span class="admin-email">marco.vannuzzi@23music.com</span></td>
+            <td><span class="admin-badge">Block</span><span class="admin-invoice">90450158</span></td>
+            <td style="font-size:13px; color:var(--newsprint);">United Kingdom</td>
+            <td><span class="admin-date">23 Apr 2026 14:08</span></td>
+            <td></td>
+            <td></td>
+            <td><span class="admin-date">1005</span></td>
+            <td><div class="admin-actions">
+              <span class="admin-action">Resend</span><span class="admin-action">View</span><span class="admin-action">Modify</span><span class="admin-action">Cancel</span><span class="admin-action">Refund</span><span class="admin-action">Update details</span><span class="admin-action">Add note</span><span class="admin-action">No-show</span>
+            </div></td>
+          </tr>
+          <tr>
+            <td><span class="admin-name">Anssi Autio</span><span class="admin-email">annastiina.paavola@yle.fi</span></td>
+            <td><span class="admin-badge">Block</span><span class="admin-invoice">90431793</span></td>
+            <td></td>
+            <td><span class="admin-date">23 Apr 2026 14:06</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="admin-actions">
+              <span class="admin-action">Resend</span><span class="admin-action">View</span><span class="admin-action">Modify</span><span class="admin-action">Cancel</span><span class="admin-action muted">Refund</span><span class="admin-action">Update details</span><span class="admin-action">Add note</span><span class="admin-action">No-show</span>
+            </div></td>
+          </tr>
+          <tr>
+            <td><span class="admin-name">Jakov Isak Leon</span><span class="admin-email">eurovision@jakovleon.com</span></td>
+            <td><span class="admin-badge">Block</span><span class="admin-invoice">90449528</span></td>
+            <td></td>
+            <td><span class="admin-date">23 Apr 2026 13:39</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="admin-actions">
+              <span class="admin-action">Resend</span><span class="admin-action">View</span><span class="admin-action">Modify</span><span class="admin-action">Cancel</span><span class="admin-action muted">Refund</span><span class="admin-action">Update details</span><span class="admin-action">Add note</span><span class="admin-action">No-show</span>
+            </div></td>
+          </tr>
+          <tr>
+            <td><span class="admin-name">Isidora Maric</span><span class="admin-email">isidoram.02@gmail.com</span></td>
+            <td><span class="admin-badge">Block</span><span class="admin-invoice">90449530</span></td>
+            <td></td>
+            <td><span class="admin-date">23 Apr 2026 13:39</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="admin-actions">
+              <span class="admin-action">Resend</span><span class="admin-action">View</span><span class="admin-action">Modify</span><span class="admin-action">Cancel</span><span class="admin-action muted">Refund</span><span class="admin-action">Update details</span><span class="admin-action">Add note</span><span class="admin-action">No-show</span>
+            </div></td>
+          </tr>
+          <tr>
+            <td><span class="admin-name">Bojan Popovic</span><span class="admin-email">bojan.popovic@rtcg.me</span></td>
+            <td><span class="admin-badge">Block</span><span class="admin-invoice">90449533</span></td>
+            <td></td>
+            <td><span class="admin-date">23 Apr 2026 13:39</span></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><div class="admin-actions">
+              <span class="admin-action">Resend</span><span class="admin-action">View</span><span class="admin-action">Modify</span><span class="admin-action">Cancel</span><span class="admin-action muted">Refund</span><span class="admin-action">Update details</span><span class="admin-action">Add note</span><span class="admin-action">No-show</span>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:20px;">
+      <table class="token-table" style="max-width:600px;">
+        <thead><tr><th>Element</th><th>Style</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>th font</td><td>JetBrains Mono · 9px · 0.1em · uppercase</td><td>text-grey on mid-dark bg</td></tr>
+          <tr><td>name</td><td>Source Serif 4 · 13px · 600</td><td>newsprint</td></tr>
+          <tr><td>email / link</td><td>Source Serif 4 · 12px</td><td>cyan-accent</td></tr>
+          <tr><td>badge</td><td>JetBrains Mono · 8px · uppercase</td><td>mid-dark bg, rule-grey border</td></tr>
+          <tr><td>invoice number</td><td>JetBrains Mono · 11px</td><td>cyan-accent</td></tr>
+          <tr><td>date</td><td>JetBrains Mono · 11px</td><td>newsprint, nowrap</td></tr>
+          <tr><td>action link (active)</td><td>Source Serif 4 · 12px</td><td>cyan-accent</td></tr>
+          <tr><td>action link (muted)</td><td>Source Serif 4 · 12px</td><td>text-grey — unavailable state</td></tr>
+          <tr><td>row hover</td><td>rgba(30,165,227,0.03)</td><td>Subtle accent tint</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div><!-- /.sg-wrap -->
+
+<div class="sg-footer">
+  Gulf Print &amp; Pack 2026 · Style Guide v1.0<br>
+  Roomberg × HotelMap · Analyst Theme<br>
+  Playfair Display · Source Serif 4 · JetBrains Mono
+</div>
+
+</body>
+</html>
